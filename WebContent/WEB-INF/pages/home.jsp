@@ -356,14 +356,12 @@ div.title-top-product {
 			</div>
 			<div class="products-container container">
 				<ul class="nav-products">
-					<c:forEach var="pl" items="${Product_list}">
+					<c:forEach var="cl" items="${Category_List}">
 
 
 						<li class="col-xs-4"><a href="motorola.html"><img
-								src="${pl.categoriesImage}" alt=${pl.category_name}/><span
-								class="title-product">${pl.category_name}</span></a></li>
-
-
+								src="${cl.categoriesImage}" alt=${cl.categoryName } /><span
+								class="title-product">${cl.categoryName}</span></a></li>
 
 					</c:forEach>
 				</ul>
@@ -393,69 +391,43 @@ div.title-top-product {
 					<div class="latest-product-title">
 						<span>Latest Mobile</span>
 					</div>
-					<div class="latest-product-tile clearfix">
-						<div class="tile-img  pull-left">
-							<img src="img/s6_1.jpg" alt="Samsung-Edge" />
+
+
+
+					<c:forEach var="pl" items="${Product_list}">
+
+
+						<div class="latest-product-tile clearfix">
+							<div class="tile-img  pull-left">
+								<img src="${pl.productsImage}" alt="${pl.productsModel}" />
+							</div>
+							<div class="tile-details pull-left">
+								<div class="title-latest-product">${pl.productsModel}</div>
+								<div class="info-row clearfix">
+									<span class="label-latest-product pull-left">${pl.productsModel}
+										: </span><span class="value-latest-product pull-right">
+										${pl.productsPrice} </span>
+								</div>
+								<div class="info-row clearfix">
+									<span class="label-latest-product pull-left">Samsung
+										Edge : </span><span class="value-latest-product pull-right">
+										${pl.productsPrice} </span>
+								</div>
+								<div class="info-row clearfix">
+									<span class="label-latest-product pull-left">Samsung
+										Edge : </span><span class="value-latest-product pull-right">
+										${pl.productsPrice} </span>
+								</div>
+								<div class="price-latest-product">${pl.productsPrice}</div>
+							</div>
 						</div>
-						<div class="tile-details pull-left">
-							<div class="title-latest-product">Samsung Edge</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="price-latest-product">Rs 579898</div>
-						</div>
-					</div>
-					<div class="latest-product-tile clearfix">
-						<div class="tile-img  pull-left">
-							<img src="img/s6_1.jpg" alt="Samsung-Edge" />
-						</div>
-						<div class="tile-details pull-left">
-							<div class="title-latest-product">Samsung Edge</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="price-latest-product">Rs 579898</div>
-						</div>
-					</div>
-					<div class="latest-product-tile clearfix">
-						<div class="tile-img  pull-left">
-							<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
-						</div>
-						<div class="tile-details pull-left">
-							<div class="title-latest-product">Samsung Edge</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="info-row clearfix">
-								<span class="label-latest-product pull-left">Samsung Edge
-									: </span><span class="value-latest-product pull-right"> test </span>
-							</div>
-							<div class="price-latest-product">Rs 579898</div>
-						</div>
-					</div>
+
+					</c:forEach>
+
+
+
+
+
 				</div>
 			</div>
 		</div>

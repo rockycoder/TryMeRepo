@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.app.pojo.Categories;
 import com.app.pojo.Customers;
+import com.app.pojo.Products;
 import com.app.web.ServiceApi.ICustomerService;
 
 
@@ -31,7 +32,7 @@ public class HomeController {
 	public ModelAndView formSub(){
 		
 		List catLst=service.getCategories();
-		List prodLst=service.getProducts();
+		List<Products> prodLst=service.getAllProductsByCategory(1);
 		String message = "Hello World, Spring 3.0!";
 		ModelAndView model=new ModelAndView("home");
 		model.addObject("Category_List", catLst);

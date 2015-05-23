@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
 import com.app.pojo.Categories;
@@ -41,6 +43,24 @@ public class AbstractDao extends CustomDaoSupport {
 		List list = getHibernateTemplate().find("from Products");
 		return list;
 	}
+	
+	public List<Products> getAllProductsByCategory(Integer id)
+	{
+		
+	SessionFactory sf = getHibernateTemplate().getSessionFactory();
+	Session session=sf.openSession();
+	String q1 = "from Categories c where c.categoriesId=:cid";
+	Categories cat=(Categories) session.createQuery(q1).setParameter("cid", id).uniqueResult();
+	
+		return cat.getProductses();
+	}
+	
+	
+	/*public List<Products> getAllProductsByCategory(int id)
+	{
+		List list=getHibernateTemplate().findByNamedParam("from Categories c where c.categoriesId=:cid", "cid", id);
+		return list;
+	}*/
 	
 	
 }
