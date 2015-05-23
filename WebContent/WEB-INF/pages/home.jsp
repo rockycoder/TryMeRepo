@@ -16,10 +16,12 @@
 <!--script src="js/less-1.3.3.min.js"></script-->
 <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
 
-<link href="<c:url value="/res/css/bootstrap.min.css"/>" rel="stylesheet">
+<link href="<c:url value="/res/css/bootstrap.min.css"/>"
+	rel="stylesheet">
 <link href="<c:url value="/res/css/style.css"/>" rel="stylesheet">
 <link href="<c:url value="/res/css/bootstrap.css"/>" rel="stylesheet">
-<link href="<c:url value="/res/css/bootstrap-responsive.css"/>" rel="stylesheet">
+<link href="<c:url value="/res/css/bootstrap-responsive.css"/>"
+	rel="stylesheet">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -40,8 +42,10 @@
 	href="<c:url value='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300'/>"
 	rel='stylesheet' type='text/css' />
 
-<script type="text/javascript" src="<c:url value="/res/js/jquery.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/res/js/bootstrap.min.js"/>"></script>
+<script type="text/javascript"
+	src="<c:url value="/res/js/jquery.min.js"/>"></script>
+<script type="text/javascript"
+	src="<c:url value="/res/js/bootstrap.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/res/js/scripts.js"/>"></script>
 <script src="<c:url value="/res/js/megamenu.js"/>"></script>
 
@@ -352,24 +356,16 @@ div.title-top-product {
 			</div>
 			<div class="products-container container">
 				<ul class="nav-products">
-					<li class="col-xs-2"><a href="motorola.html"><img
-							src="<c:url value="img/products1.jpg"/>"alt="product" /><span
-							class="title-product">Motorola</span></a></li>
-					<li class="col-xs-2"><a href="#"><img
-							src="<c:url value="img/products1.jpg"/>" alt="product" /><span
-							class="title-product">I Phone </span></a></li>
-					<li class="col-xs-2"><a href="#"><img
-							src="<c:url value="img/products1.jpg"/>" alt="product" /><span
-							class="title-product">Samsung</span></a></li>
-					<li class="col-xs-2"><a href="#"><img
-							src="<c:url value="img/products1.jpg"/>" alt="product" /><span
-							class="title-product">Oppo</span></a></li>
-					<li class="col-xs-2"><a href="#"><img
-							src="<c:url value="img/products1.jpg"/>" alt="product" /><span
-							class="title-product">Lenovo</span></a></li>
-					<li class="col-xs-2"><a href="#"><img
-							src="<c:url value="img/products1.jpg"/>" alt="product" /><span
-							class="title-product">Microsoft</span></a></li>
+					<c:forEach var="pl" items="${Product_list}">
+
+
+						<li class="col-xs-4"><a href="motorola.html"><img
+								src="${pl.categoriesImage}" alt=${pl.category_name}/><span
+								class="title-product">${pl.category_name}</span></a></li>
+
+
+
+					</c:forEach>
 				</ul>
 			</div>
 		</div>

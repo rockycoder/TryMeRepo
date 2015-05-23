@@ -54,6 +54,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 			<list>
 				<value>com.app.pojo.Sample</value>
 				<value>com.app.pojo.Customers</value>
+				<value>com.app.pojo.Categories</value>
 			</list>
 		</property>
 	</bean>

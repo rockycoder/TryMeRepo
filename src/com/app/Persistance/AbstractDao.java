@@ -6,6 +6,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.app.pojo.Categories;
+
 @Service("dao")
 @Transactional
 public class AbstractDao extends CustomDaoSupport {
@@ -24,6 +26,13 @@ public class AbstractDao extends CustomDaoSupport {
 	public Object findById(String id) {
 		List list = getHibernateTemplate().find("from sample where id=?", id);
 		return (Object) list.get(0);
+	}
+	
+
+	public List<Categories> getAllCategories()
+	{
+		List list = getHibernateTemplate().find("from Categories");
+		return list;
 	}
 	
 }
