@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.app.pojo.Categories;
+import com.app.pojo.Products;
 
 @Service("dao")
 @Transactional
@@ -34,5 +35,12 @@ public class AbstractDao extends CustomDaoSupport {
 		List list = getHibernateTemplate().find("from Categories");
 		return list;
 	}
+	
+	public List<Products> getAllProducts()
+	{
+		List list = getHibernateTemplate().find("from Products");
+		return list;
+	}
+	
 	
 }

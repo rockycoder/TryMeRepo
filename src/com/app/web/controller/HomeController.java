@@ -30,9 +30,14 @@ public class HomeController {
 	@RequestMapping("/formsub")	
 	public ModelAndView formSub(){
 		
-		List lst=service.getCategories();
+		List catLst=service.getCategories();
+		List prodLst=service.getProducts();
 		String message = "Hello World, Spring 3.0!";
-        return new ModelAndView("home", "Product_list", lst); 
+		ModelAndView model=new ModelAndView("home");
+		model.addObject("Category_List", catLst);
+		model.addObject("Product_list", prodLst);
+		
+        return model; 
 	}
 }
 	

@@ -22,6 +22,12 @@ public class ServiceImpl implements ICustomerService{
 		// TODO Auto-generated method stub
 		return dao.getAllCategories();
 	}
+	
+	@Override
+	public List getProducts() {
+		// TODO Auto-generated method stub
+		return dao.getAllProducts();
+	}
 
 	@Override
 	public void save(Object cust) {

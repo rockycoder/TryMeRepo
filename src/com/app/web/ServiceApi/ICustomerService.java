@@ -8,5 +8,6 @@ public interface ICustomerService {
 
 	void save(Object cust);
 	List getCategories();
+	List getProducts();
 
 }

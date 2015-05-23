@@ -437,7 +437,7 @@ div.title-top-product {
 					</div>
 					<div class="latest-product-tile clearfix">
 						<div class="tile-img  pull-left">
-							<img src="img/s6_1.jpg" alt="Samsung-Edge" />
+							<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
 						</div>
 						<div class="tile-details pull-left">
 							<div class="title-latest-product">Samsung Edge</div>
