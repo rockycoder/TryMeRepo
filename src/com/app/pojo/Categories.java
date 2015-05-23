@@ -1,9 +1,13 @@
 package com.app.pojo;
 
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,10 +24,22 @@ public class Categories implements java.io.Serializable {
 	private String categoriesImage;
 	private Date dateAdded;
 	private Date lastModified;
+	private List<Products> product_units;
 
+	
 	public Categories() {
 	}
 
+	// bi-directional many-to-one association to Products
+	@OneToMany(mappedBy = "categories", cascade = { CascadeType.ALL })
+	public List<Products> getProducts() {
+		return this.product_units;
+	}
+
+	public void setProducts(List<Products> product_units) {
+		this.product_units = product_units;
+	}
+	
 	public Categories(int categoriesId) {
 		this.categoriesId = categoriesId;
 	}
