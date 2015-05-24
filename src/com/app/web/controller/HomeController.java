@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.app.pojo.Categories;
 import com.app.pojo.Customers;
 import com.app.pojo.Products;
+import com.app.pojo.Reviews;
 import com.app.web.ServiceApi.ICustomerService;
 
 
@@ -31,12 +32,17 @@ public class HomeController {
 	@RequestMapping("/formsub")	
 	public ModelAndView formSub(){
 		
-		List catLst=service.getCategories();
+		
+		List<Categories> catLst=service.getCategories();
 		List<Products> prodLst=service.getAllProductsByCategory(1);
+		List<Reviews> revLst=service.getReviews();
+		
 		String message = "Hello World, Spring 3.0!";
 		ModelAndView model=new ModelAndView("home");
 		model.addObject("Category_List", catLst);
 		model.addObject("Product_list", prodLst);
+		model.addObject("Reviews_list", revLst);
+		
 		
         return model; 
 	}

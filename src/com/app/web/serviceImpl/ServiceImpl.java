@@ -10,6 +10,7 @@ import com.app.Persistance.CategoryDao;
 import com.app.pojo.Categories;
 import com.app.pojo.Customers;
 import com.app.pojo.Products;
+import com.app.pojo.Reviews;
 import com.app.web.ServiceApi.ICustomerService;
 
 @Service
@@ -29,6 +30,12 @@ public class ServiceImpl implements ICustomerService{
 	public List<Products> getProducts() {
 		// TODO Auto-generated method stub
 		return dao.getAllProducts();
+	}
+	
+	@Override
+	public List<Reviews> getReviews() {
+		// TODO Auto-generated method stub
+		return dao.getAllReviews();
 	}
 
 	@Override

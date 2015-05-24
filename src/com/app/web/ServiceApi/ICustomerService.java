@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.app.pojo.Customers;
 import com.app.pojo.Products;
+import com.app.pojo.Reviews;
 
 public interface ICustomerService {
 
@@ -11,5 +12,6 @@ public interface ICustomerService {
 	List getCategories();
 	List getProducts();
 	List<Products> getAllProductsByCategory(int id);
+	List<Reviews> getReviews();
 
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.pojo.Categories;
 import com.app.pojo.Products;
+import com.app.pojo.Reviews;
 
 @Service("dao")
 @Transactional
@@ -55,6 +56,12 @@ public class AbstractDao extends CustomDaoSupport {
 		return cat.getProductses();
 	}
 	
+	
+	public List<Reviews> getAllReviews()
+	{
+		List<Reviews> list = (List<Reviews>) getHibernateTemplate().find("from Reviews");
+		return list;
+	}
 	
 	/*public List<Products> getAllProductsByCategory(int id)
 	{

@@ -1,4 +1,4 @@
-package com.tango.sample;
+/*package com.tango.sample;
 
 import java.util.Date;
 
@@ -32,4 +32,4 @@ public class TestSpring {
 		dao.save(cust);
 		
 	}
-}
+}*/

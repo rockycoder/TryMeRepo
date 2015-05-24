@@ -1,4 +1,4 @@
-package com.tango.sample;
+/*package com.tango.sample;
 
 import java.sql.*;
 
@@ -56,4 +56,4 @@ public class FirstExample {
    }//end try
    System.out.println("Goodbye!");
 }//end main
-}//end FirstExample
+}//end FirstExample*/

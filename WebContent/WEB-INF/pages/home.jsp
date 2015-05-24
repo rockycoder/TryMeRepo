@@ -452,22 +452,17 @@ div.title-top-product {
 					Latest Reviews <small>find latest review of customers</small>
 				</h1>
 			</div>
+			<c:forEach var="rl" items="${Reviews_list}" >
 			<div class="media">
-				 <a href="#" class="pull-left"><img src="http://lorempixel.com/64/64/" class="media-object" alt=""></a>
+				 <a href="#" class="pull-left"><img src=${rl.products.productsImage} class="media-object" alt=${rl.products.productsModel}></a>
 				<div class="media-body">
 					<h4 class="media-heading">
-						Mark David
-					</h4> Chappi is a perfect theme for any app you want to present. Well organized, fully repsonsive and easy to customize are only some key features. 
-					<div class="media">
-						 <a href="#" class="pull-left"><img src="http://lorempixel.com/64/64/" class="media-object" alt=""></a>
-						<div class="media-body">
-							<h4 class="media-heading">
-								Mark Hussy
-							</h4> Chappi is a perfect theme for any app you want to present. Well organized.
-						</div>
-					</div>
+						${rl.customers.customersFirstname}
+					</h4> 
+					${rl.reviewText}
 				</div>
 			</div>
+			</c:forEach>
 		</div>
 	</div>
 	</div>
