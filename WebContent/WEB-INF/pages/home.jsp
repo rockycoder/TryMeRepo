@@ -11,290 +11,40 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
-<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
-<!--script src="js/less-1.3.3.min.js"></script-->
-<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="res/css/style.css" rel="stylesheet">
+	<link href="res/css/flexslider.css" rel="stylesheet">
+	<link href="res/css/bootstrap.css" rel="stylesheet">
+	<link href="res/css/bootstrap-responsive.css" rel="stylesheet">
 
-<link href="<c:url value="/res/css/bootstrap.min.css"/>"
-	rel="stylesheet">
-<link href="<c:url value="/res/css/style.css"/>" rel="stylesheet">
-<link href="<c:url value="/res/css/bootstrap.css"/>" rel="stylesheet">
-<link href="<c:url value="/res/css/bootstrap-responsive.css"/>"
-	rel="stylesheet">
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
   <![endif]-->
 
-<!-- Fav and touch icons -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="<c:url value="/res/img/apple-touch-icon-144-precomposed.png"/>">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="<c:url value="/res/img/apple-touch-icon-114-precomposed.png"/>">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="<c:url value="/res/img/apple-touch-icon-72-precomposed.png"/>">
-<link rel="apple-touch-icon-precomposed"
-	href="<c:url value="/res/img/apple-touch-icon-57-precomposed.png"/>">
-<link rel="shortcut icon" href="/res/img/favicon.png">
-<link
-	href="<c:url value='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300'/>"
-	rel='stylesheet' type='text/css' />
-
-<script type="text/javascript"
-	src="<c:url value="/res/js/jquery.min.js"/>"></script>
-<script type="text/javascript"
-	src="<c:url value="/res/js/bootstrap.min.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/res/js/scripts.js"/>"></script>
-<script src="<c:url value="/res/js/megamenu.js"/>"></script>
-
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="img/favicon.png">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css' />
+  
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="res/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="res/js/scripts.js"></script>
+	<script type="text/javascript" src="res/js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="res/js/jquery.flexslider-min.js"></script>
+	
+	<script src="res/js/megamenu.js"></script>
+	<script src="res/js/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
 
 <script>
 	
 </script>
 
 <style type="text/css">
-html, body {
-	margin: 0;
-	padding: 0;
-}
 
-.container-fluid {
-	padding: 0;
-	font-family: 'Open Sans', sans-serif;
-}
-
-.header-wrapper {
-	background: #1abc9c;
-}
-
-.container {
-	width: 960px;
-	margin: auto;
-}
-
-.nav-main {
-	
-}
-
-ul.nav-main, ul.right-menu, ul.nav-products {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-}
-
-ul.nav-main li, ul.right-menu>li {
-	float: left;
-}
-
-ul.nav-main li a {
-	padding: 10px 20px;
-	font-size: 14px;
-	color: #fff;
-	display: block;
-	text-decoration: none;
-}
-
-ul.nav-main li a:hover {
-	color: #ecf0f1;
-}
-
-.search {
-	float: right;
-}
-
-.products-wrapper {
-	background: #f2f2f2;
-}
-
-.footer-wrapper {
-	background: #f2f2f2;
-}
-
-.sub-menu .title-menu {
-	float: left;
-	padding: 10px 30px;
-	font-size: 16px;
-	font-weight: bold;
-}
-
-.sub-menu .right-menu {
-	float: right;
-}
-
-ul.right-menu>li>a {
-	padding: 10px 15px;
-	font-size: 14px;
-	color: #333;
-	display: block;
-	text-decoration: none;
-}
-
-ul.right-menu li a:hover, ul.nav-products li a:hover {
-	text-decoration: none;
-}
-
-ul.right-menu li.get-help .dropdown-menu {
-	left: -192px;
-}
-
-ul.right-menu li.get-cart .dropdown-menu {
-	left: -122px;
-}
-
-ul.nav-products li a {
-	display: block;
-	text-decoration: none;
-	text-align: center;
-	padding: 10px 15px;
-}
-
-ul.nav-products li img {
-	height: 50px;
-	margin: 10px;
-	text-align: center;
-}
-
-.footer-text span {
-	font-size: 11px;
-	float: left;
-	padding: 5px 0;
-}
-
-ul.footer-link {
-	float: right;
-	padding: 5px 0;
-}
-
-ul.footer-link li {
-	float: left;
-	display: block;
-	font-size: 10px;
-	padding: 3px 5px;
-	border-right: 1px solid #ced6db;
-}
-
-.footer-copyright span {
-	float: left;
-	font-size: 10px;
-	display: block;
-}
-
-.footer-copyright {
-	padding-bottom: 15px;
-}
-
-ul.piped li {
-	font-size: 10px;
-	float: left;
-	display: block;
-	text-decoration: none;
-	padding: 3px 5px;
-	border-right: 1px solid #ced6db;
-}
-
-ul.nav-products li span {
-	display: block;
-	text-align: center;
-}
-
-.title-menuitem {
-	color: #678bce;
-}
-
-.cart-img {
-	height: 35px;
-}
-
-.maincontent {
-	padding: 20px 0;
-}
-
-.top-product, .latest-product {
-	float: left;
-	padding: 5px;
-}
-
-.top-product-title, .latest-product-title {
-	background: #1abc9c;
-	padding: 5px 15px;
-	color: #fff;
-}
-
-.top-product-title span, .latest-product-title span {
-	font-size: 20px;
-}
-
-.top-product-image img {
-	height: 200px;
-	width: 100%;
-}
-
-div.title-top-product {
-	padding: 10px 0;
-	font-size: 20px;
-	font-weight: 600;
-}
-
-.top-product-description {
-	text-align: justify;
-	padding: 0 5px;
-}
-
-.latest-product-title {
-	background: #1abc9c;
-}
-
-.latest-product-tile {
-	border-bottom: 3px solid #ced6db;
-	margin-bottom: 3px;
-}
-
-.tile-img {
-	width: 60%;
-	border-right: 3px solid #f25720;
-}
-
-.tile-img img {
-	width: 100%;
-}
-
-.tile-details {
-	width: 40%;
-	text-align: center;
-}
-
-.tile-details .title-latest-product, .tile-details .price-latest-product
-	{
-	padding: 2px 0;
-	border-bottom: 1px solid #f2f2f2;
-}
-
-.tile-details .title-latest-product {
-	
-}
-
-.tile-details .info-row {
-	padding: 2px 0;
-	border-bottom: 1px solid #f2f2f2;
-}
-
-.tile-details .label-latest-product {
-	padding-left: 8px;
-}
-
-.tile-details .value-latest-product {
-	padding-right: 5px;
-}
-
-.pull-left {
-	float: left;
-}
-
-.pull-right {
-	float: right;
-}
 </style>
 </head>
 
@@ -424,10 +174,6 @@ div.title-top-product {
 
 					</c:forEach>
 
-
-
-
-
 				</div>
 			</div>
 		</div>
@@ -474,10 +220,13 @@ div.title-top-product {
 					Best Sellers 
 				</h1>
 			</div>
-			<div class="row">
-				<div class="col-md-4">
+		<!-- Place somewhere in the <body> of your page -->
+<div class="flexslider container">
+  <ul class="slides">
+    <li class="col-md-4">
+      <div >
 					<div class="thumbnail">
-						<img alt="300x200" src="img/vivo-.jpg">
+						<img alt="300x200" src="res/img/vivo-.jpg">
 						<div class="caption">
 							<h3><br>
 								Vivo Xshot X710
@@ -491,25 +240,11 @@ div.title-top-product {
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+    </li>
+    <li class="col-md-4">
+      <div >
 					<div class="thumbnail">
-						<img alt="300x200" src="img/sony-slt-a37j.jpeg">
-						<div class="caption">
-							<h3>
-								Sony SL T-A58Y/Q DSLR Camera
-							</h3>
-							<p>
-								Experience bliss with each snap that you click with the new Sony Alpha DSLR camera. With life-like images and HD movie shooting, you are in for a lot of fun and adventure.. 
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="img/HP laptop.jpg">
+						<img alt="300x200" src="res/img/HP laptop.jpg">
 						<div class="caption" >
 							<h3>
 								HP Compaq 15-s105TU Notebook
@@ -525,7 +260,65 @@ div.title-top-product {
 						</div>
 					</div>
 				</div>
-			</div>
+    </li>
+    <li class="col-md-4">
+      <div >
+					<div class="thumbnail">
+						<img alt="300x200" src="res/img/sony-slt-a37j.jpeg">
+						<div class="caption">
+							<h3>
+								Sony SL T-A58Y/Q DSLR Camera
+							</h3>
+							<p>
+								Experience bliss with each snap that you click with the new Sony Alpha DSLR camera. With life-like images and HD movie shooting, you are in for a lot of fun and adventure.. 
+							</p>
+							<p>
+								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+							</p>
+						</div>
+					</div>
+				</div>
+    </li>
+    <li class="col-md-4">
+      <div >
+					<div class="thumbnail">
+						<img alt="300x200" src="res/img/sony-slt-a37j.jpeg">
+						<div class="caption">
+							<h3>
+								Sony SL T-A58Y/Q DSLR Camera
+							</h3>
+							<p>
+								Experience bliss with each snap that you click with the new Sony Alpha DSLR camera. With life-like images and HD movie shooting, you are in for a lot of fun and adventure.. 
+							</p>
+							<p>
+								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+							</p>
+						</div>
+					</div>
+				</div>
+    </li>
+    <li class="col-md-4">
+      <div >
+					<div class="thumbnail">
+						<img alt="300x200" src="res/img/sony-slt-a37j.jpeg">
+						<div class="caption">
+							<h3>
+								Sony SL T-A58Y/Q DSLR Camera
+							</h3>
+							<p>
+								Experience bliss with each snap that you click with the new Sony Alpha DSLR camera. With life-like images and HD movie shooting, you are in for a lot of fun and adventure.. 
+							</p>
+							<p>
+								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
+							</p>
+						</div>
+					</div>
+				</div>
+    </li>
+    
+    <!-- items mirrored twice, total of 12 -->
+  </ul>
+</div>	
 		</div>
 	</div>
 	</div>
@@ -557,4 +350,35 @@ div.title-top-product {
 	</div>
 
 </body>
+<script type="text/javascript">
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    animationLoop: false,
+    itemWidth: 300,
+    itemMargin: 5,
+    minItems: 1,
+    maxItems: 3
+  });
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".demo").bootstrapNews({
+	newsPerPage: 2,
+	navigation: true,
+	autoplay: true,
+	direction:'up', // up or down
+	animationSpeed: 'normal',
+	newsTickerInterval: 4000, //4 secs
+	pauseOnHover: true,
+	onStop: null,
+	onPause: null,
+	onReset: null,
+	onPrev: null,
+	onNext: null,
+	onToDo: null
+	});
+});
+</script>
 </html>
