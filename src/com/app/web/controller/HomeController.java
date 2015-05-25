@@ -38,13 +38,19 @@ public class HomeController {
 		List<Reviews> revLst=service.getReviews();
 		
 		String message = "Hello World, Spring 3.0!";
-		ModelAndView model=new ModelAndView("home");
+		ModelAndView model=new ModelAndView("store");
 		model.addObject("Category_List", catLst);
 		model.addObject("Product_list", prodLst);
 		model.addObject("Reviews_list", revLst);
 		
 		
         return model; 
+	}
+	
+	@RequestMapping("/mobiles")	
+	public ModelAndView mobilesPage(){
+		String message = "Hello World, Spring 3.0!";
+        return new ModelAndView("mobiles", "message", message); 
 	}
 }
 	

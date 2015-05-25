@@ -338,7 +338,7 @@
 					</ul>
 				</div>
 				<div class="footer-copyright col-md-12">
-					<span>Copyright Â© 2015 eXpo. All rights reserved.</span>
+					<span>Copyright © 2015 eXpo. All rights reserved.</span>
 					<ul class="piped">
 						<li><a href="#">Terms of Use</a></li>
 						<li><a href="#">Updated Privacy Policy</a></li>
