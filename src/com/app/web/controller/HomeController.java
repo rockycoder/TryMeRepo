@@ -38,7 +38,7 @@ public class HomeController {
 		List<Reviews> revLst=service.getReviews();
 		
 		String message = "Hello World, Spring 3.0!";
-		ModelAndView model=new ModelAndView("home");
+		ModelAndView model=new ModelAndView("store");
 		model.addObject("Category_List", catLst);
 		model.addObject("Product_list", prodLst);
 		model.addObject("Reviews_list", revLst);
@@ -47,10 +47,17 @@ public class HomeController {
         return model; 
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping("/Mobiles")	
 	public ModelAndView Mobiles(){
 		String message = "Latest Mobiles";
         return new ModelAndView("Mobiles", "message", message); 
+=======
+	@RequestMapping("/mobiles")	
+	public ModelAndView mobilesPage(){
+		String message = "Hello World, Spring 3.0!";
+        return new ModelAndView("mobiles", "message", message); 
+>>>>>>> 075258e569f750bf84e2f4b89df6e1a7185d62ff
 	}
 }
 	

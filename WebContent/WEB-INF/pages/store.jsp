@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="res/css/bootstrap.min.css" rel="stylesheet">
 	<link href="res/css/style.css" rel="stylesheet">
 	<link href="res/css/flexslider.css" rel="stylesheet">
 	<link href="res/css/bootstrap.css" rel="stylesheet">
@@ -56,18 +56,26 @@
 				<ul class="nav-main">
 					<li class="logo"><a href="#">Logo</a></li>
 					<li><a href="#">--EXPstore--</a></li>
-					<li><a href="#"> Mobiles </a></li>
+<<<<<<< HEAD:WebContent/WEB-INF/pages/home.jsp
+					<li><a href="Mobiles"> Mobiles </a></li>
+=======
+					<li><a href="mobiles"> Mobiles </a></li>
+>>>>>>> 075258e569f750bf84e2f4b89df6e1a7185d62ff:WebContent/WEB-INF/pages/store.jsp
 					<li><a href="#"> Cameras </a></li>
 					<li><a href="#"> Laptops </a></li>
 					<li><a href="#"> Appliances </a></li>
 					<li><a href="#"> Accessories </a></li>
-					<li class="search"><a href="#"> Search</a></li>
+					<li class="search">
+						<form class="navbar-search pull-left">
+							<input type="text" class="search-query" placeholder="Search eXpo Store">
+						</form>
+					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="products-wrapper">
 			<div class="sub-menu container">
-				<div class="title-menu">Mobile eX-po store</div>
+				<div class="title-menu">eX-po store</div>
 				<ul class="right-menu">
 					<li><a href="#">Find eX-po store</a></li>
 					<li><a href="#">know us</a></li>
@@ -90,7 +98,7 @@
 					<li class="dropdown get-cart"><span class="dropdown-toggle"
 						type="button" id="dropdownMenu1" data-toggle="dropdown"
 						aria-expanded="true"><img class="cart-img"
-							src="img/images.jpg" alt="product" /><span
+							src="res/img/cart.png" alt="product" /><span
 							class="title-menuitem"></span> </span>
 						<ul class="dropdown-menu" role="menu"
 							aria-labelledby="dropdownMenu1">
@@ -109,7 +117,7 @@
 					<c:forEach var="cl" items="${Category_List}">
 
 
-						<li class="col-xs-4"><a href="motorola.html"><img
+						<li class="col-xs-2"><a href="${cl.categoryName}"><img
 								src="${cl.categoriesImage}" alt=${cl.categoryName } /><span
 								class="title-product">${cl.categoryName}</span></a></li>
 
@@ -124,7 +132,7 @@
 						<span>Top Mobile of the Week</span>
 					</div>
 					<div class="top-product-image">
-						<img src="img/s6_1.jpg" alt="Samsung-Edge" />
+						<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
 					</div>
 					<div class="title-top-product">Samsung Edge</div>
 					<div class="top-product-description">
@@ -138,15 +146,16 @@
 					</div>
 				</div>
 				<div class="latest-product col-md-6">
-					<div class="latest-product-title">
-						<span>Latest Mobile</span>
-					</div>
+					<div class="panel panel-default">
+					<div class="panel-heading latest-product-title"> <span>Latest Mobile</span></div>
+						<div class="panel-body">
+					<ul class="demo">
 
 
 
 					<c:forEach var="pl" items="${Product_list}">
 
-
+						<li class="news-item">
 						<div class="latest-product-tile clearfix">
 							<div class="tile-img  pull-left">
 								<img src="${pl.productsImage}" alt="${pl.productsModel}" />
@@ -171,9 +180,11 @@
 								<div class="price-latest-product">${pl.productsPrice}</div>
 							</div>
 						</div>
-
+					</li>
 					</c:forEach>
-
+				</ul>
+				</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -181,7 +192,7 @@
 			<div class="best-seller container">
 				<div class="best-seller-tile col-ms-4">
 					<div class="best-seller-image">
-						<img src="img/s6_1.jpg" alt="Samsung-Edge" />
+						<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
 					</div>
 					<div class="best-seller-product">Samsung Edge</div>
 					<div class="best-seller-description">					
@@ -193,7 +204,7 @@
 		<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<div class="page-header">
+			<div class="review-header">
 				<h1>
 					Latest Reviews <small>find latest review of customers</small>
 				</h1>
@@ -338,7 +349,7 @@
 					</ul>
 				</div>
 				<div class="footer-copyright col-md-12">
-					<span>Copyright © 2015 eXpo. All rights reserved.</span>
+					<span>Copyright Â© 2015 eXpo. All rights reserved.</span>
 					<ul class="piped">
 						<li><a href="#">Terms of Use</a></li>
 						<li><a href="#">Updated Privacy Policy</a></li>
@@ -381,4 +392,5 @@ $(document).ready(function(){
 	});
 });
 </script>
+
 </html>
