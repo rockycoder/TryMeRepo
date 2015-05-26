@@ -25,7 +25,7 @@ public class HomeController {
 	
 	@RequestMapping("/index")	
 	public ModelAndView index(){
-		String message = "Hello World, Spring 3.0!";
+		String message = "Your Experience Store";
         return new ModelAndView("index", "message", message); 
 	}
 	
@@ -45,6 +45,12 @@ public class HomeController {
 		
 		
         return model; 
+	}
+	
+	@RequestMapping("/Mobiles")	
+	public ModelAndView Mobiles(){
+		String message = "Latest Mobiles";
+        return new ModelAndView("Mobiles", "message", message); 
 	}
 }
 	

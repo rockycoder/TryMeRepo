@@ -56,7 +56,7 @@
 				<ul class="nav-main">
 					<li class="logo"><a href="#">Logo</a></li>
 					<li><a href="#">--EXPstore--</a></li>
-					<li><a href="Mobiles"> Mobiles </a></li>
+					<li><a href="mobiles"> Mobiles </a></li>
 					<li><a href="#"> Cameras </a></li>
 					<li><a href="#"> Laptops </a></li>
 					<li><a href="#"> Appliances </a></li>
@@ -113,7 +113,7 @@
 					<c:forEach var="cl" items="${Category_List}">
 
 
-						<li class="col-xs-2"><a href="${cl.categoryName}"><img
+						<li class="col-xs-2"><a href="motorola.html"><img
 								src="${cl.categoriesImage}" alt=${cl.categoryName } /><span
 								class="title-product">${cl.categoryName}</span></a></li>
 
@@ -345,7 +345,7 @@
 					</ul>
 				</div>
 				<div class="footer-copyright col-md-12">
-					<span>Copyright Â© 2015 eXpo. All rights reserved.</span>
+					<span>Copyright © 2015 eXpo. All rights reserved.</span>
 					<ul class="piped">
 						<li><a href="#">Terms of Use</a></li>
 						<li><a href="#">Updated Privacy Policy</a></li>
