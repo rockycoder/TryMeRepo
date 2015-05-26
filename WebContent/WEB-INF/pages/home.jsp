@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="res/css/bootstrap.min.css" rel="stylesheet">
 	<link href="res/css/style.css" rel="stylesheet">
 	<link href="res/css/flexslider.css" rel="stylesheet">
 	<link href="res/css/bootstrap.css" rel="stylesheet">
@@ -61,7 +61,11 @@
 					<li><a href="#"> Laptops </a></li>
 					<li><a href="#"> Appliances </a></li>
 					<li><a href="#"> Accessories </a></li>
-					<li class="search"><a href="#"> Search</a></li>
+					<li class="search">
+						<form class="navbar-search pull-left">
+							<input type="text" class="search-query" placeholder="Search eXpo Store">
+						</form>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -90,7 +94,7 @@
 					<li class="dropdown get-cart"><span class="dropdown-toggle"
 						type="button" id="dropdownMenu1" data-toggle="dropdown"
 						aria-expanded="true"><img class="cart-img"
-							src="img/images.jpg" alt="product" /><span
+							src="res/img/images.jpg" alt="product" /><span
 							class="title-menuitem"></span> </span>
 						<ul class="dropdown-menu" role="menu"
 							aria-labelledby="dropdownMenu1">
@@ -124,7 +128,7 @@
 						<span>Top Mobile of the Week</span>
 					</div>
 					<div class="top-product-image">
-						<img src="img/s6_1.jpg" alt="Samsung-Edge" />
+						<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
 					</div>
 					<div class="title-top-product">Samsung Edge</div>
 					<div class="top-product-description">
@@ -138,15 +142,16 @@
 					</div>
 				</div>
 				<div class="latest-product col-md-6">
-					<div class="latest-product-title">
-						<span>Latest Mobile</span>
-					</div>
+					<div class="panel panel-default">
+					<div class="panel-heading latest-product-title"> <span>Latest Mobile</span></div>
+						<div class="panel-body">
+					<ul class="demo">
 
 
 
 					<c:forEach var="pl" items="${Product_list}">
 
-
+						<li class="news-item">
 						<div class="latest-product-tile clearfix">
 							<div class="tile-img  pull-left">
 								<img src="${pl.productsImage}" alt="${pl.productsModel}" />
@@ -171,9 +176,11 @@
 								<div class="price-latest-product">${pl.productsPrice}</div>
 							</div>
 						</div>
-
+					</li>
 					</c:forEach>
-
+				</ul>
+				</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -181,7 +188,7 @@
 			<div class="best-seller container">
 				<div class="best-seller-tile col-ms-4">
 					<div class="best-seller-image">
-						<img src="img/s6_1.jpg" alt="Samsung-Edge" />
+						<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
 					</div>
 					<div class="best-seller-product">Samsung Edge</div>
 					<div class="best-seller-description">					
@@ -193,7 +200,7 @@
 		<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<div class="page-header">
+			<div class="review-header">
 				<h1>
 					Latest Reviews <small>find latest review of customers</small>
 				</h1>
@@ -381,4 +388,5 @@ $(document).ready(function(){
 	});
 });
 </script>
+
 </html>
