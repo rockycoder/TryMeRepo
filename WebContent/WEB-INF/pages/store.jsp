@@ -56,11 +56,7 @@
 				<ul class="nav-main">
 					<li class="logo"><a href="#">Logo</a></li>
 					<li><a href="#">--EXPstore--</a></li>
-<<<<<<< HEAD:WebContent/WEB-INF/pages/home.jsp
-					<li><a href="Mobiles"> Mobiles </a></li>
-=======
 					<li><a href="mobiles"> Mobiles </a></li>
->>>>>>> 075258e569f750bf84e2f4b89df6e1a7185d62ff:WebContent/WEB-INF/pages/store.jsp
 					<li><a href="#"> Cameras </a></li>
 					<li><a href="#"> Laptops </a></li>
 					<li><a href="#"> Appliances </a></li>
