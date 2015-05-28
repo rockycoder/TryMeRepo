@@ -1,5 +1,6 @@
-<%@ include file="header.jsp" %>
-			<div class="products-container container">
+<%@ include file="header.jsp" %>	
+
+<div class="products-container container">
 				<ul class="nav-products">
 					<c:forEach var="cl" items="${Category_List}">
 
@@ -16,7 +17,7 @@
 			<div class="maincontent container">
 				<div class="top-product col-md-6">
 					<div class="top-product-title">
-						<span>Image SLider Daalna hai</span>
+						<span>Top Mobile of the Week</span>
 					</div>
 					<div class="top-product-image">
 						<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
@@ -220,7 +221,8 @@
 			</div>
 		</div>
 		</div>
-	<%@ include file="footer.jsp" %>	
+
+<%@ include file="footer.jsp" %>	
 <script type="text/javascript">
 $(window).load(function() {
   $('.flexslider').flexslider({
@@ -252,5 +254,3 @@ $(document).ready(function(){
 	});
 });
 </script>
-
-
