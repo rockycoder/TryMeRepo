@@ -32,7 +32,6 @@ public class HomeController {
 	@RequestMapping(method=RequestMethod.GET, value="/index")	
 	public @ResponseBody ModelAndView index(){
 		String message = "Hello World, Spring 3.0!";
-		
         return new ModelAndView("index", "message", message); 
 	}
 	
@@ -53,10 +52,20 @@ public class HomeController {
         return "store"; 
 	}
 	
-	@RequestMapping("/mobiles")	
-	public ModelAndView mobilesPage(){
-		String message = "Hello World, Spring 3.0!";
-        return new ModelAndView("mobiles", "message", message); 
+
+	@RequestMapping("/Mobiles")	
+	public ModelAndView Mobiles(){
+		String message = "Latest in Mobiles";
+        return new ModelAndView("Mobiles", "message", message); 
+
+	}
+	@RequestMapping("/Cameras")	
+	public ModelAndView Cameras(){
+		List <Categories> catList=service.getCategories();
+		String message = "Latest in Cameras";
+		ModelAndView model=new ModelAndView("Cameras");
+		model.addObject("Category_List",catList);
+        return model;
 	}
 }
 	
