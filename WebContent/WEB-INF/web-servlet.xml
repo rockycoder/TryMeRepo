@@ -12,10 +12,35 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<context:component-scan base-package="com.app.web.controller" />
 	<mvc:annotation-driven />
-	<mvc:resources  mapping="/res/**" location="/res/" order="-1"/>
+	<mvc:resources mapping="/res/**" location="/res/" order="-1" />
+
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+				<entry key="rss" value="application/rss+xml" />
+			</map>
+		</property>
+
+		<property name="defaultViews">
+			<list>
+				<!-- JSON View -->
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+				</bean>
+			</list>
+		</property>
+		<property name="ignoreAcceptHeader" value="true" />
+
+	</bean>
+
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-
+		<property name="order" value="2" />
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 

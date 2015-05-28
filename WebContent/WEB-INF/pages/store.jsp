@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="res/css/bootstrap.min.css" rel="stylesheet">
 	<link href="res/css/style.css" rel="stylesheet">
 	<link href="res/css/flexslider.css" rel="stylesheet">
 	<link href="res/css/bootstrap.css" rel="stylesheet">

@@ -3,11 +3,17 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContext;
 
 import com.app.pojo.Categories;
 import com.app.pojo.Customers;
@@ -23,28 +29,28 @@ public class HomeController {
 	@Autowired
 	ICustomerService service;
 	
-	@RequestMapping("/index")	
-	public ModelAndView index(){
+	@RequestMapping(method=RequestMethod.GET, value="/index")	
+	public @ResponseBody ModelAndView index(){
 		String message = "Hello World, Spring 3.0!";
+		
         return new ModelAndView("index", "message", message); 
 	}
 	
-	@RequestMapping("/formsub")	
-	public ModelAndView formSub(){
+	
+	@RequestMapping(method=RequestMethod.GET,value="{path}")	
+	public  String formSub(@PathVariable String path,ModelMap model){
 		
-		
+	
 		List<Categories> catLst=service.getCategories();
 		List<Products> prodLst=service.getAllProductsByCategory(1);
 		List<Reviews> revLst=service.getReviews();
 		
 		String message = "Hello World, Spring 3.0!";
-		ModelAndView model=new ModelAndView("store");
-		model.addObject("Category_List", catLst);
-		model.addObject("Product_list", prodLst);
-		model.addObject("Reviews_list", revLst);
+        model.addAttribute("Category_List", catLst);
+		model.addAttribute("Product_list", prodLst);
+		model.addAttribute("Reviews_list", revLst);
 		
-		
-        return model; 
+        return "store"; 
 	}
 	
 	@RequestMapping("/mobiles")	
