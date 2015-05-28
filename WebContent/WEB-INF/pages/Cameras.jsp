@@ -1,130 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
-<head>
-<meta charset="utf-8">
-
-<title>eX-po Store!</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="res/css/style.css" rel="stylesheet">
-	<link href="res/css/flexslider.css" rel="stylesheet">
-	<link href="res/css/bootstrap.css" rel="stylesheet">
-	<link href="res/css/bootstrap-responsive.css" rel="stylesheet">
-
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-  <![endif]-->
-
-  <!-- Fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
-  <link rel="shortcut icon" href="img/favicon.png">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,700,300' rel='stylesheet' type='text/css' />
-  
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="res/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="res/js/scripts.js"></script>
-	<script type="text/javascript" src="res/js/jquery.flexslider.js"></script>
-	<script type="text/javascript" src="res/js/jquery.flexslider-min.js"></script>
-	
-	<script src="res/js/megamenu.js"></script>
-	<script src="res/js/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
-
-<script>
-	
-</script>
-
-<style type="text/css">
-
-</style>
-</head>
-
-<body>
-
-	<div class="container-fluid">
-		<div class="header-wrapper clearfix">
-			<div class="header container">
-				<ul class="nav-main">
-					<li class="logo"><a href="#">Logo</a></li>
-					<li><a href="#">--EXPstore--</a></li>
-					<li><a href="#"> Mobiles </a></li>
-					<li><a href="#"> Cameras </a></li>
-					<li><a href="#"> Laptops </a></li>
-					<li><a href="#"> Appliances </a></li>
-					<li><a href="#"> Accessories </a></li>
-					<li class="search"><a href="#"> Search</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="products-wrapper">
-			<div class="sub-menu container">
-				<div class="title-menu">Mobile eX-po store</div>
-				<ul class="right-menu">
-					<li><a href="#">Find eX-po store</a></li>
-					<li><a href="#">know us</a></li>
-					<li class="dropdown get-help"><a href="#"
-						class="dropdown-toggle" type="button" id="dropdownMenu1"
-						data-toggle="dropdown" aria-expanded="true"> Get Help <span
-							class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu"
-							aria-labelledby="dropdownMenu1">
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#"><span class="title-menuitem">Need help
-										exploring the Product ?</span></a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#"><span class="title-menuitem">Need help
-										experiencing the Product ? </span></a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#"><span class="title-menuitem">FAQ </span></a></li>
-						</ul></li>
-					<li class="dropdown get-cart"><span class="dropdown-toggle"
-						type="button" id="dropdownMenu1" data-toggle="dropdown"
-						aria-expanded="true"><img class="cart-img"
-							src="img/images.jpg" alt="product" /><span
-							class="title-menuitem"></span> </span>
-						<ul class="dropdown-menu" role="menu"
-							aria-labelledby="dropdownMenu1">
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#"><span class="title-menuitem">Have an account
-										<br>login..
-								</span></a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#"><span class="title-menuitem">View Cart</span></a></li>
-						</ul></li>
-
-				</ul>
-			</div>
-			<div class="products-container container">
+<%@ include file="header.jsp" %>
+<div class="products-container container">
 				<ul class="nav-products">
 					<c:forEach var="cl" items="${Category_List}">
 
 
-						<li class="col-xs-4"><a href="motorola.html"><img
+						<li class="col-xs-2"><a href="${cl.categoryName}"><img
 								src="${cl.categoriesImage}" alt=${cl.categoryName } /><span
 								class="title-product">${cl.categoryName}</span></a></li>
 
 					</c:forEach>
 				</ul>
 			</div>
-		</div>
+		</div>	
 		<div class="maincontent-wrapper clearfix">
 			<div class="maincontent container">
 				<div class="top-product col-md-6">
 					<div class="top-product-title">
-						<span>Top Mobile of the Week</span>
+						<span>Top Cameras of the Week</span>
 					</div>
 					<div class="top-product-image">
-						<img src="img/s6_1.jpg" alt="Samsung-Edge" />
+						<img src="res/img/sony-slt-a37j.jpeg" alt="Samsung-Edge" />
 					</div>
 					<div class="title-top-product">Samsung Edge</div>
 					<div class="top-product-description">
@@ -138,15 +33,16 @@
 					</div>
 				</div>
 				<div class="latest-product col-md-6">
-					<div class="latest-product-title">
-						<span>Latest Mobile</span>
-					</div>
+					<div class="panel panel-default">
+					<div class="panel-heading latest-product-title"> <span>Latest Cameras</span></div>
+						<div class="panel-body">
+					<ul class="demo">
 
 
 
 					<c:forEach var="pl" items="${Product_list}">
 
-
+						<li class="news-item">
 						<div class="latest-product-tile clearfix">
 							<div class="tile-img  pull-left">
 								<img src="${pl.productsImage}" alt="${pl.productsModel}" />
@@ -171,9 +67,11 @@
 								<div class="price-latest-product">${pl.productsPrice}</div>
 							</div>
 						</div>
-
+					</li>
 					</c:forEach>
-
+				</ul>
+				</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -181,7 +79,7 @@
 			<div class="best-seller container">
 				<div class="best-seller-tile col-ms-4">
 					<div class="best-seller-image">
-						<img src="img/s6_1.jpg" alt="Samsung-Edge" />
+						<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
 					</div>
 					<div class="best-seller-product">Samsung Edge</div>
 					<div class="best-seller-description">					
@@ -193,7 +91,7 @@
 		<div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<div class="page-header">
+			<div class="review-header">
 				<h1>
 					Latest Reviews <small>find latest review of customers</small>
 				</h1>
@@ -322,34 +220,7 @@
 		</div>
 	</div>
 	</div>
-		<div class="footer-wrapper clearfix">
-			<div class="footer container">
-				<div class="footer-nav col-md-12">
-					<div class="footer-text">
-						<span>Shop the available Products at Online Store
-							(1-800-MY-EXPO), or visit an eXpo Partner Store.</span>
-					</div>
-					<ul class="footer-link">
-						<li><a href="#">eXpo Info</a></li>
-						<li><a href="#">Site Map</a></li>
-						<li><a href="#">News</a></li>
-						<li><a href="#">RSS Feeds</a></li>
-						<li><a href="#">Contact Us</a></li>
-					</ul>
-				</div>
-				<div class="footer-copyright col-md-12">
-					<span>Copyright © 2015 eXpo. All rights reserved.</span>
-					<ul class="piped">
-						<li><a href="#">Terms of Use</a></li>
-						<li><a href="#">Updated Privacy Policy</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-</body>
+	<%@ include file="footer.jsp" %>
 <script type="text/javascript">
 $(window).load(function() {
   $('.flexslider').flexslider({
@@ -381,4 +252,5 @@ $(document).ready(function(){
 	});
 });
 </script>
+
 </html>

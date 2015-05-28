@@ -48,11 +48,19 @@ public class HomeController {
 	}
 	
 
-	@RequestMapping("/mobiles")	
+	@RequestMapping("/Mobiles")	
 	public ModelAndView Mobiles(){
-		String message = "Latest Mobiles";
-        return new ModelAndView("mobiles", "message", message); 
+		String message = "Latest in Mobiles";
+        return new ModelAndView("Mobiles", "message", message); 
 
+	}
+	@RequestMapping("/Cameras")	
+	public ModelAndView Cameras(){
+		List <Categories> catList=service.getCategories();
+		String message = "Latest in Cameras";
+		ModelAndView model=new ModelAndView("Cameras");
+		model.addObject("Category_List",catList);
+        return model;
 	}
 }
 	
