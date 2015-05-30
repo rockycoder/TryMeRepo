@@ -112,9 +112,7 @@ public class AbstractDao extends CustomDaoSupport {
 		
 	}
 	
-	/*
-	 * This method will return the Popular products in all the categories
-	 */
+
 	public List<Products> getPopularProducts() throws ApplicationException
 	{
 		List<Products> popularProds=getSession().createQuery("FROM Products p ORDER BY p.productsViewed,p.productsOrdered asc").setMaxResults(8).list();
@@ -127,6 +125,32 @@ public class AbstractDao extends CustomDaoSupport {
 		{
 			return getLatestProducts() ;
 		}
+	}
+	
+	
+	public List<Products> getPopularMobiles()
+	{
+		return null;
+	}
+	
+	public List<Products> getPopularCameras()
+	{
+		return null;
+	}
+	
+	public List<Products> getPopularTablets()
+	{
+		return null;
+	}
+	
+	public List<Products> getPopularAppliances()
+	{
+		return null;
+	}
+	
+	public List<Products> getPopularAccessories()
+	{
+		return null;
 	}
 	
 }
