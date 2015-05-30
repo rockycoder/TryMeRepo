@@ -56,5 +56,11 @@ public class ServiceImpl implements ICustomerService{
 		return dao.getLatestProducts();
 	}
 	
+	@Override
+	public List<Products> getPopularProducts() throws ApplicationException
+	{
+	
+		return dao.getPopularProducts();
+	}
 
 }

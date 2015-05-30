@@ -121,16 +121,17 @@
 			<!-- Place somewhere in the <body> of your page -->
 	<div class="flexslider container">
 	  <ul class="slides">
+	  <c:forEach var="popProd" items="${Popular_Products}">
 	    <li class="col-md-4">
 	      <div >
 						<div class="thumbnail">
-							<img alt="300x200" src="res/img/vivo-.jpg">
+							<img alt="${popProd.productsModel}" src="${popProd.productsImage}">
 							<div class="caption">
 								<h3><br>
-									Vivo Xshot X710
+									${popProd.productsModel}
 								</h3>
 								<p>
-									With Amazing IPS display you can now watch all 720 p videos as well as certain 1080 p videos on your phone with amazing and crisp clarity.<BR> 512 MB of RAM makes sure you don't run out of steam while playing your favourite games. <br>Best phone in its price range.
+								${popProd.shortDesc}
 								</p>
 								<p>
 									<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
@@ -139,81 +140,7 @@
 						</div>
 					</div>
 	    </li>
-	    <li class="col-md-4">
-	      <div >
-						<div class="thumbnail">
-							<img alt="300x200" src="res/img/HP laptop.jpg">
-							<div class="caption" >
-								<h3>
-									HP Compaq 15-s105TU Notebook
-								</h3>
-								<p class="more">
-									Designed for everyday use, the HP Compaq 15-s105TU notebook comes with an Intel Core i5 processor, 4 GB RAM and runs on Free DOS.
-									1.7 GHz Intel Core i5 processor with Turbo Boost up to 2.7 GHz, this HP Compaq notebook delivers a fast and powerful performance. 						
-									</p>
-									
-								<p>
-									<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-								</p>
-							</div>
-						</div>
-					</div>
-	    </li>
-	    <li class="col-md-4">
-	      <div >
-						<div class="thumbnail">
-							<img alt="300x200" src="res/img/sony-slt-a37j.jpeg">
-							<div class="caption">
-								<h3>
-									Sony SL T-A58Y/Q DSLR Camera
-								</h3>
-								<p>
-									Experience bliss with each snap that you click with the new Sony Alpha DSLR camera. With life-like images and HD movie shooting, you are in for a lot of fun and adventure.. 
-								</p>
-								<p>
-									<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-								</p>
-							</div>
-						</div>
-					</div>
-	    </li>
-	    <li class="col-md-4">
-	      <div >
-						<div class="thumbnail">
-							<img alt="300x200" src="res/img/sony-slt-a37j.jpeg">
-							<div class="caption">
-								<h3>
-									Sony SL T-A58Y/Q DSLR Camera
-								</h3>
-								<p>
-									Experience bliss with each snap that you click with the new Sony Alpha DSLR camera. With life-like images and HD movie shooting, you are in for a lot of fun and adventure.. 
-								</p>
-								<p>
-									<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-								</p>
-							</div>
-						</div>
-					</div>
-	    </li>
-	    <li class="col-md-4">
-	      <div >
-						<div class="thumbnail">
-							<img alt="300x200" src="res/img/sony-slt-a37j.jpeg">
-							<div class="caption">
-								<h3>
-									Sony SL T-A58Y/Q DSLR Camera
-								</h3>
-								<p>
-									Experience bliss with each snap that you click with the new Sony Alpha DSLR camera. With life-like images and HD movie shooting, you are in for a lot of fun and adventure.. 
-								</p>
-								<p>
-									<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-								</p>
-							</div>
-						</div>
-					</div>
-	    </li>
-	    
+	    </c:forEach>
 	    <!-- items mirrored twice, total of 12 -->
 	  </ul>
 	</div>	

@@ -4,6 +4,7 @@ package com.app.pojo;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,6 +22,11 @@ import javax.persistence.TemporalType;
 @Table(name = "products")
 public class Products implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int productsId;
 	private Categories categories;
 	private Integer productsQuantity;
@@ -37,7 +43,9 @@ public class Products implements java.io.Serializable {
 	private Integer manufacturersId;
 	private Integer productsOrdered;
 	private String manufacturerName;
+	private String shortDesc;
 	
+
 
 	public Products() {
 	}
@@ -46,13 +54,17 @@ public class Products implements java.io.Serializable {
 		this.productsId = productsId;
 	}
 
+	
+
 	public Products(int productsId, Categories categories,
 			Integer productsQuantity, String productsModel,
 			String productsImage, BigDecimal productsPrice,
 			Date productsDateAdded, Date productsLastModified,
 			Date productsDateAvailable, BigDecimal productsWeight,
 			Integer productsStatus, String productsUrl, Integer productsViewed,
-			Integer manufacturersId, Integer productsOrdered) {
+			Integer manufacturersId, Integer productsOrdered,
+			String manufacturerName, String shortDesc) {
+		super();
 		this.productsId = productsId;
 		this.categories = categories;
 		this.productsQuantity = productsQuantity;
@@ -68,6 +80,8 @@ public class Products implements java.io.Serializable {
 		this.productsViewed = productsViewed;
 		this.manufacturersId = manufacturersId;
 		this.productsOrdered = productsOrdered;
+		this.manufacturerName = manufacturerName;
+		this.shortDesc = shortDesc;
 	}
 
 	@Id
@@ -217,6 +231,15 @@ public class Products implements java.io.Serializable {
 
 	public void setManufacturerName(String manufacturerName) {
 		this.manufacturerName = manufacturerName;
+	}
+	
+	@Column(name = "Short_Desc")
+	public String getShortDesc() {
+		return shortDesc;
+	}
+
+	public void setShortDesc(String shortDesc) {
+		this.shortDesc = shortDesc;
 	}
 
 	

@@ -19,7 +19,7 @@ public class AbstractDao extends CustomDaoSupport {
 	
 	private Session getSession() throws ApplicationException {
 
-		try {
+		
 			SessionFactory sf = getHibernateTemplate().getSessionFactory();
 			if (sf != null) {
 				Session session = sf.openSession();
@@ -33,10 +33,8 @@ public class AbstractDao extends CustomDaoSupport {
 				throw new ApplicationException(
 						"Hibernate Session Factory Not created ");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+		
+
 
 	}
 	
@@ -112,6 +110,23 @@ public class AbstractDao extends CustomDaoSupport {
 		List<Products> topProducts = getSession().createQuery("FROM Products p ORDER BY p.productsDateAdded asc").setMaxResults(3).list();
 		return topProducts;
 		
+	}
+	
+	/*
+	 * This method will return the Popular products in all the categories
+	 */
+	public List<Products> getPopularProducts() throws ApplicationException
+	{
+		List<Products> popularProds=getSession().createQuery("FROM Products p ORDER BY p.productsViewed,p.productsOrdered asc").setMaxResults(8).list();
+		
+		if(popularProds!=null)
+		{
+		  return popularProds;
+		}
+		else
+		{
+			return getLatestProducts() ;
+		}
 	}
 	
 }

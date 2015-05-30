@@ -40,13 +40,16 @@ public class HomeController {
 
 		try {
 			List<Categories> catLst = service.getCategories();
-			List<Products> prodLst = service.getAllProductsByCategory(1);
+			//List<Products> prodLst = service.getAllProductsByCategory(1);
+			List<Products> popularProds=service.getPopularProducts();
 			List<Products> latestProducts = service.getLatestProducts();
 			List<Reviews> revLst = service.getReviews();
 
 			model.addAttribute("Category_List", catLst);
 			model.addAttribute("latestProducts", latestProducts);
 			model.addAttribute("Reviews_list", revLst);
+			model.addAttribute("Popular_Products", popularProds);
+			
 
 			return "store";
 		} catch (ApplicationException ae) {
