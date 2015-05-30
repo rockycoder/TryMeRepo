@@ -36,6 +36,8 @@ public class Products implements java.io.Serializable {
 	private Integer productsViewed;
 	private Integer manufacturersId;
 	private Integer productsOrdered;
+	private String manufacturerName;
+	
 
 	public Products() {
 	}
@@ -124,7 +126,7 @@ public class Products implements java.io.Serializable {
 		this.productsPrice = productsPrice;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "products_date_added", length = 29)
 	public Date getProductsDateAdded() {
 		return this.productsDateAdded;
@@ -208,4 +210,15 @@ public class Products implements java.io.Serializable {
 		this.productsOrdered = productsOrdered;
 	}
 
+	@Column(name = "manufacturer_name")
+	public String getManufacturerName() {
+		return manufacturerName;
+	}
+
+	public void setManufacturerName(String manufacturerName) {
+		this.manufacturerName = manufacturerName;
+	}
+
+	
+	
 }

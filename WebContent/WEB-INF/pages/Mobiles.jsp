@@ -41,7 +41,7 @@
 
 
 
-					<c:forEach var="pl" items="${Product_list}">
+					<c:forEach var="pl" items="${All_Mobiles}">
 
 						<li class="news-item">
 						<div class="latest-product-tile clearfix">

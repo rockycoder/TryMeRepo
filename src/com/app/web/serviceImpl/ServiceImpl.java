@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.Persistance.AbstractDao;
 import com.app.Persistance.CategoryDao;
+import com.app.Utils.ApplicationException;
 import com.app.pojo.Categories;
 import com.app.pojo.Customers;
 import com.app.pojo.Products;
@@ -44,9 +45,16 @@ public class ServiceImpl implements ICustomerService{
 		
 	}
 	@Override
-	public List<Products> getAllProductsByCategory(int id)
+	public List<Products> getAllProductsByCategory(int id) throws ApplicationException
 	{
 		return dao.getAllProductsByCategory(id);
 	}
+	
+	@Override
+	public List<Products> getLatestProducts() throws ApplicationException
+	{
+		return dao.getLatestProducts();
+	}
+	
 
 }

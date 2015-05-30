@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
+import com.app.Utils.ApplicationException;
 import com.app.pojo.Categories;
 import com.app.pojo.Products;
 import com.app.pojo.Reviews;
@@ -15,6 +16,39 @@ import com.app.pojo.Reviews;
 @Service("dao")
 @Transactional
 public class AbstractDao extends CustomDaoSupport {
+	
+	private Session getSession() throws ApplicationException {
+
+		try {
+			SessionFactory sf = getHibernateTemplate().getSessionFactory();
+			if (sf != null) {
+				Session session = sf.openSession();
+				if (session != null) {
+					return session;
+				} else {
+					throw new ApplicationException(
+							"Hibernate Session NOt Created");
+				}
+			} else {
+				throw new ApplicationException(
+						"Hibernate Session Factory Not created ");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+	
+	private void closeSession(Session session)
+	{
+		if(session!=null)
+		{
+			session.close();
+		}
+		
+	}
+	
 	public void save(Object entity) {
 		getHibernateTemplate().save(entity);
 	}
@@ -45,11 +79,10 @@ public class AbstractDao extends CustomDaoSupport {
 		return list;
 	}
 	
-	public List<Products> getAllProductsByCategory(Integer id)
+	public List<Products> getAllProductsByCategory(Integer id) throws ApplicationException
 	{
 		
-	SessionFactory sf = getHibernateTemplate().getSessionFactory();
-	Session session=sf.openSession();
+	Session session=getSession();
 	String q1 = "from Categories c where c.categoriesId=:cid";
 	Categories cat=(Categories) session.createQuery(q1).setParameter("cid", id).uniqueResult();
 	
@@ -69,5 +102,16 @@ public class AbstractDao extends CustomDaoSupport {
 		return list;
 	}*/
 	
+	/*
+	 * It will return all the latest products according to the date added .
+	 * 
+	 */
+	
+	public List<Products> getLatestProducts() throws ApplicationException
+	{
+		List<Products> topProducts = getSession().createQuery("FROM Products p ORDER BY p.productsDateAdded asc").setMaxResults(3).list();
+		return topProducts;
+		
+	}
 	
 }

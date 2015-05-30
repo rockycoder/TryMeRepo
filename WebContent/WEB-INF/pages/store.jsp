@@ -4,7 +4,7 @@
 					<c:forEach var="cl" items="${Category_List}">
 
 
-						<li class="col-xs-2"><a href="${cl.categoryName}"><img
+						<li class="col-xs-2"><a id="${cl.categoriesId}" href="${cl.categoryName}"><img
 								src="${cl.categoriesImage}" alt=${cl.categoryName } /><span
 								class="title-product">${cl.categoryName}</span></a></li>
 
@@ -34,13 +34,13 @@
 				</div>
 				<div class="latest-product col-md-6">
 					<div class="panel panel-default">
-					<div class="panel-heading latest-product-title"> <span>Latest Mobile</span></div>
+					<div class="panel-heading latest-product-title"> <span>Latest Products</span></div>
 						<div class="panel-body">
 					<ul class="demo">
 
 
 
-					<c:forEach var="pl" items="${Product_list}">
+					<c:forEach var="pl" items="${latestProducts}">
 
 						<li class="news-item">
 						<div class="latest-product-tile clearfix">
@@ -50,19 +50,19 @@
 							<div class="tile-details pull-left">
 								<div class="title-latest-product">${pl.productsModel}</div>
 								<div class="info-row clearfix">
-									<span class="label-latest-product pull-left">${pl.productsModel}
+									<span class="label-latest-product pull-left">Price : 
 										: </span><span class="value-latest-product pull-right">
 										${pl.productsPrice} </span>
 								</div>
 								<div class="info-row clearfix">
-									<span class="label-latest-product pull-left">Samsung
-										Edge : </span><span class="value-latest-product pull-right">
-										${pl.productsPrice} </span>
+									<span class="label-latest-product pull-left">Manufacturer Name :
+									</span><span class="value-latest-product pull-right">
+										${pl.manufacturerName} </span>
 								</div>
 								<div class="info-row clearfix">
-									<span class="label-latest-product pull-left">Samsung
+									<span class="label-latest-product pull-left">Added On :
 										Edge : </span><span class="value-latest-product pull-right">
-										${pl.productsPrice} </span>
+										${pl.productsDateAdded} </span>
 								</div>
 								<div class="price-latest-product">${pl.productsPrice}</div>
 							</div>
