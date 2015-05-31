@@ -20,21 +20,21 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "products")
-public class Products implements java.io.Serializable {
+public class Products implements java.io.Serializable,Comparable<Products> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private int productsId;
+	private Integer productsId;
 	private Categories categories;
 	private Integer productsQuantity;
 	private String productsModel;
 	private String productsImage;
 	private BigDecimal productsPrice;
 	private Date productsDateAdded;
-	private Date productsLastModified;
+	private Date lastModified;
 	private Date productsDateAvailable;
 	private BigDecimal productsWeight;
 	private Integer productsStatus;
@@ -56,10 +56,10 @@ public class Products implements java.io.Serializable {
 
 	
 
-	public Products(int productsId, Categories categories,
+	public Products(Integer productsId, Categories categories,
 			Integer productsQuantity, String productsModel,
 			String productsImage, BigDecimal productsPrice,
-			Date productsDateAdded, Date productsLastModified,
+			Date productsDateAdded, Date lastModified,
 			Date productsDateAvailable, BigDecimal productsWeight,
 			Integer productsStatus, String productsUrl, Integer productsViewed,
 			Integer manufacturersId, Integer productsOrdered,
@@ -72,7 +72,7 @@ public class Products implements java.io.Serializable {
 		this.productsImage = productsImage;
 		this.productsPrice = productsPrice;
 		this.productsDateAdded = productsDateAdded;
-		this.productsLastModified = productsLastModified;
+		this.lastModified = lastModified;
 		this.productsDateAvailable = productsDateAvailable;
 		this.productsWeight = productsWeight;
 		this.productsStatus = productsStatus;
@@ -84,13 +84,43 @@ public class Products implements java.io.Serializable {
 		this.shortDesc = shortDesc;
 	}
 
+	
+	@Override
+	public int compareTo(Products o) {
+		
+		return this.productsId.compareTo(o.productsId);
+	}
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + productsId;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Products other = (Products) obj;
+		if (productsId != other.productsId)
+			return false;
+		return true;
+	}
+
 	@Id
 	@Column(name = "products_id", unique = true, nullable = false)
-	public int getProductsId() {
+	public Integer getProductsId() {
 		return this.productsId;
 	}
 
-	public void setProductsId(int productsId) {
+	public void setProductsId(Integer productsId) {
 		this.productsId = productsId;
 	}
 
@@ -152,12 +182,12 @@ public class Products implements java.io.Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "products_last_modified", length = 29)
-	public Date getProductsLastModified() {
-		return this.productsLastModified;
+	public Date getLastModified() {
+		return this.lastModified;
 	}
 
-	public void setProductsLastModified(Date productsLastModified) {
-		this.productsLastModified = productsLastModified;
+	public void setLastModified(Date lastModified) {
+		this.lastModified = lastModified;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -241,6 +271,8 @@ public class Products implements java.io.Serializable {
 	public void setShortDesc(String shortDesc) {
 		this.shortDesc = shortDesc;
 	}
+
+	
 
 	
 	
