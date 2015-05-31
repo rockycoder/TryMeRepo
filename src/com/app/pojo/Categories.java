@@ -20,9 +20,14 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "categories")
-public class Categories implements java.io.Serializable {
+public class Categories implements java.io.Serializable,Comparable<Categories> {
 
-	private int categoriesId;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private Integer categoriesId;
 	private String categoriesImage;
 	private Date dateAdded;
 	private Date lastModified;
@@ -34,7 +39,7 @@ public class Categories implements java.io.Serializable {
 	}
 
 	
-	public Categories(int categoriesId, String categoriesImage, Date dateAdded,
+	public Categories(Integer categoriesId, String categoriesImage, Date dateAdded,
 			Date lastModified, String categoryName, Long sortorder,
 			List<Products> productses) {
 		super();
@@ -46,6 +51,8 @@ public class Categories implements java.io.Serializable {
 		this.sortorder = sortorder;
 		this.productses = productses;
 	}
+	
+	
 
 
 	public Categories(int categoriesId) {
@@ -54,11 +61,11 @@ public class Categories implements java.io.Serializable {
 
 	@Id
 	@Column(name = "categories_id", unique = true, nullable = false)
-	public int getCategoriesId() {
+	public Integer getCategoriesId() {
 		return this.categoriesId;
 	}
 
-	public void setCategoriesId(int categoriesId) {
+	public void setCategoriesId(Integer categoriesId) {
 		this.categoriesId = categoriesId;
 	}
 
@@ -119,4 +126,42 @@ public class Categories implements java.io.Serializable {
 		this.productses = productses;
 	}
 
+
+	@Override
+	public int compareTo(Categories o) {
+		
+		return this.getCategoriesId().compareTo(o.getCategoriesId());
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((categoriesId == null) ? 0 : categoriesId.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Categories other = (Categories) obj;
+		if (categoriesId == null) {
+			if (other.categoriesId != null)
+				return false;
+		} else if (!categoriesId.equals(other.categoriesId))
+			return false;
+		return true;
+	}
+
+	
+	
+	
 }

@@ -62,5 +62,11 @@ public class ServiceImpl implements ICustomerService{
 	
 		return dao.getPopularProducts();
 	}
+	
+	@Override
+	public List<Products> getPopularProductsByCategoryId(int id)
+	{	
+		return dao.getPopularProductsByCategoryId(id);
+	}
 
 }

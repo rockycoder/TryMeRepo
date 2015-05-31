@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public abstract class CustomDaoSupport extends HibernateDaoSupport {
 	@Autowired
-    public void anyMethodName(SessionFactory sessionFactory)
+    public void setSessionFactoryCustom(SessionFactory sessionFactory)
     {
         setSessionFactory(sessionFactory);
     }

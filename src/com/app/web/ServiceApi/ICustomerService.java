@@ -16,5 +16,6 @@ public interface ICustomerService {
 	List<Reviews> getReviews();
 	List<Products> getLatestProducts() throws ApplicationException;
 	List<Products> getPopularProducts() throws ApplicationException;
+	List<Products> getPopularProductsByCategoryId(int id);
 
 }
