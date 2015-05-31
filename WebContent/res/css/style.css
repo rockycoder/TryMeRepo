@@ -309,7 +309,7 @@ ul.demo{
 	padding: 4px 10px;
 }
 
-.review-header h1{
+/*.review-header h1{
 	  background-color: #1abc9c !important;
 	  color: #fff;
 	  padding: 5px 12px;
@@ -317,4 +317,155 @@ ul.demo{
 
 .review-header h1 small{
 	  color: #fff;
+}*/
+
+.carousel-wrap{
+	position: relative;
+	margin: 0;
+}
+
+.search-carousel-wrapper{
+	position: absolute;
+	top: 10%;
+	left: 26%;
+	z-index: 1;
+	  border: 4px solid rgba(89,89,89,.6);
+}
+.search-product-page-wrapper{
+	width: auto;
+  height: 44px;
+  top: 10%;
+  display: inline-block;
+  z-index: 1;
+	border: 2px solid rgba(89,89,89,.6);
+}
+
+.search-input,.search-product-page-input{
+	display: inline-block;
+}
+
+.search-input input{
+	display: inline-block;
+	padding: 10px;
+	width: 380px;
+	border: none;
+}
+.search-product-page-input input{
+	display: inline-block;
+	padding: 5px;
+	width: 380px;
+	border: none;
+}
+
+.search-dropdown{
+	display: inline-block;
+}
+
+.search-dropdown button{
+	  padding: 10px;
+  margin-left: -10px;
+  border: none;
+  background-color: #fff;
+}
+
+.search-button{
+	display: inline-block;
+	  color: #fff;
+  background-color: #16a085;
+  padding: 6px 25px 9px 25px;
+  margin-left: -4px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.search-product-page-button{
+	display: inline-block;
+	  color: #fff;
+  background-color: #16a085;
+  padding: 6px 25px 9px 25px;
+  margin-left: -4px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+img.media-object{
+	width:80px;
+	height: 80px;
+}
+.media-title{
+	color: #2980b9;
+  font-family: 'Bubblegum Sans', cursive;
+}
+.best-seller-title{
+	color: #2980b9;
+  font-family: 'Bubblegum Sans', cursive;
+
+}
+.media{
+	border-bottom:1px solid #ced6db;
+}
+.loading{
+	text-align: center;
+	color:#aaa;
+}
+
+section.grey{
+	background: #f2f2f2;
+}
+
+.section-new-arrivals{
+	padding: 40px 0 120px 0;
+}
+.review-like{
+	text-align:center;
+}
+/*  BEGIN CSS Styles for Search Wrapper  */
+	
+.search-wrapper{
+	padding: 0;
+	text-align: center;
+  background-color: #f2f2f2;
+  padding: 10px 0;
+}
+
+.search-bar{
+	border: 4px solid rgba(89,89,89,.6);
+	display: inline-block;	
+}
+
+.search-input{
+	display: inline-block;
+}
+
+.search-input input{
+	display: inline-block;
+	padding: 8px 10px 9px 10px;
+	width: 380px;
+	border: none;
+}
+
+.search-dropdown{
+	display: inline-block;
+}
+
+.search-dropdown button{
+  padding: 8px;
+  margin-left: -10px;
+  border: none;
+  background-color: #fff;
+}
+
+.search-button{
+	display: inline-block;
+	  color: #fff;
+  background-color: #16a085;
+  padding: 5px 25px 7px 25px;
+  margin-left: -4px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/*  END CSS Styles for Search Wrapper  */
+.specific-products-wrapper{
+	background:#f2f2f2;
 }
