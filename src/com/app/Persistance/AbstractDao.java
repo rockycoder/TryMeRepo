@@ -6,14 +6,17 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.eclipse.jdt.internal.compiler.flow.FinallyFlowContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.stereotype.Service;
 
 import com.app.Utils.ApplicationException;
 import com.app.pojo.Categories;
 import com.app.pojo.Products;
 import com.app.pojo.Reviews;
+import com.app.sorting.SortByDateAdded;
 import com.app.sorting.SortByProductsOrdered;
 import com.app.sorting.SortByProductsViewed;
 
@@ -111,7 +114,6 @@ public class AbstractDao extends CustomDaoSupport {
 			List<Products> topProducts = session
 					.createQuery(DaoConstants.GET_LATEST_PRODUCTS)
 					.setMaxResults(3).list();
-			getPopularProductsByCategoryId(1);
 			return topProducts;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,6 +123,35 @@ public class AbstractDao extends CustomDaoSupport {
 
 		return null;
 
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Products> getLatestProductsByCategoryId(int id) {
+		Session session = null;
+		try {
+			session = getSession();
+			List<Products> latestProds = session
+					.createQuery(
+							DaoConstants.GET_LATEST_PRODUCTS_BY_CATEGORY_ID)
+					.setParameter("cid", id).list();
+
+			Collections.sort(latestProds,
+					Collections.reverseOrder(new SortByDateAdded<Products>()));
+
+			if (latestProds.size() > DaoConstants.POPULAR_MAX) {
+				return latestProds.subList(DaoConstants.POPULAR_MIN,
+						DaoConstants.POPULAR_MAX);
+			} else {
+				return latestProds.subList(DaoConstants.POPULAR_MIN,
+						latestProds.size());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeSession(session);
+		}
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -153,20 +184,21 @@ public class AbstractDao extends CustomDaoSupport {
 		try {
 			session = getSession();
 
-			List<Products> lstProds = (List<Products>) session
+			List<Products> popProds = (List<Products>) session
 					.createQuery(
 							DaoConstants.GET_POPULAR_PRODUCTS_BY_CATEGORYID)
 					.setParameter("cid", id).list();
 
-			Collections.sort(lstProds, new SortByProductsViewed());
+			Collections.sort(popProds,
+					Collections.reverseOrder(new SortByProductsViewed()));
 			// Collections.sort(lstProds,new SortByProductsOrdered());
 
-			if (lstProds.size() > DaoConstants.POPULAR_MAX) {
-				return lstProds.subList(DaoConstants.POPULAR_MIN,
+			if (popProds.size() > DaoConstants.POPULAR_MAX) {
+				return popProds.subList(DaoConstants.POPULAR_MIN,
 						DaoConstants.POPULAR_MAX);
 			} else {
-				return lstProds.subList(DaoConstants.POPULAR_MIN,
-						lstProds.size());
+				return popProds.subList(DaoConstants.POPULAR_MIN,
+						popProds.size());
 			}
 
 		} catch (Exception e) {
@@ -175,6 +207,29 @@ public class AbstractDao extends CustomDaoSupport {
 			closeSession(session);
 		}
 		return null;
+	}
+
+	public Products getTopProduct() {
+		Session session = null;
+		try {
+			session = getSession();
+			Products prod = (Products) session.createQuery(
+					DaoConstants.GET_TOP_PRODUCT).uniqueResult();
+			return prod;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeSession(session);
+		}
+		return null;
+	}
+	
+	public Products getTopProductByCategoryId(int id)
+	{
+		List<Products> prods=getPopularProductsByCategoryId(id);
+		Collections.sort(prods, Collections.reverseOrder(new SortByProductsOrdered()));
+		
+		return prods.get(0);
 	}
 
 }

@@ -396,16 +396,19 @@ var nextText = null;
 	</script>
 </head>	
   <body>
-  <h1>Welcome dude!</h1>
+<!--   <h1>Welcome dude!</h1>
 	<div style="background-color: yellow">
 	<form action="/Trymeagain/formsub">
 		<input name="name" type="text" value="anynae"/>
 		<input type="submit" value="submit" name="submit"/>
 	</form>
-	</div>
+	</div> -->
+	
+	<%@ include file="header.jsp" %>	
+	
    
     <div class="container-fluid page-wrapper">
- 		<div class="row-fluid header"></div>
+ 		<!-- <div class="row-fluid header"></div> -->
       
 		<section class="laptop-wrapper">
 			<div class="laptop">

@@ -2,8 +2,6 @@
 <div class="products-container container">
 				<ul class="nav-products">
 					<c:forEach var="cl" items="${Category_List}">
-
-
 						<li class="col-xs-2"><a href="${cl.categoryName}"><img
 								src="${cl.categoriesImage}" alt=${cl.categoryName } /><span
 								class="title-product">${cl.categoryName}</span></a></li>
