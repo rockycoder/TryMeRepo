@@ -5,7 +5,7 @@ import java.util.Comparator;
 import com.app.pojo.Categories;
 import com.app.pojo.Products;
 
-public  class SortByDateAdded<T extends Comparable<T>> implements Comparator<T>{
+public  class SortByDateAdded<T> implements Comparator<T>{
 
 	@Override
 	public int compare(T o1, T o2) {
