@@ -90,7 +90,48 @@
 			</div>
 		</div>
 
-<%@ include file="footer.jsp" %>	
+<center>
+<div id="form">  
+   <form method="get">  
+    <table>  
+     <tr>  
+      <td>Name :</td>  
+      <td><input type="text" id="name" /></td>  
+     </tr> 
+     <tr>  
+      <td> </td>  
+      <td><input type="button" value="Save" onclick="doAjaxPost();" />  
+      </td>  
+     </tr>  
+    </table>  
+   </form>  
+</div>
+</center>    
+		
+
+<%@ include file="footer.jsp" %>
+
+<script>  
+   function doAjaxPost() {  
+      
+      
+    var name = $('#name').val();  
+    
+    alert(name);
+    $.ajax({  
+     type : "Get",   
+     url : "Mobiles.jsp",   
+     data : "name=" + name,     
+     success : function(response) {  
+      alert(response);   
+     },  
+     error : function(e) {  
+      alert('Error: ' + e);   
+     } 
+     
+    });  
+   }  
+  </script> 	
 <script type="text/javascript">
 $(window).load(function() {
   $('.flexslider').flexslider({
