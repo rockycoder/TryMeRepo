@@ -75,6 +75,13 @@ public class HomeController {
 		}
 
 	}
+	
+	public @ResponseBody
+	String hello(@RequestParam(value = "name") String name){
+		System.out.println(name);
+		String str = "{\"user\": { \"name\": \"" + name + "\"}}";  
+			  return str;  
+	}
 
 	@RequestMapping("/Cameras")
 	public ModelAndView Cameras() {

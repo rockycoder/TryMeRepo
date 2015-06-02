@@ -54,13 +54,14 @@
 		<div class="header-wrapper clearfix">
 			<div class="header container">
 				<ul class="nav-main">
-					<li class="logo"><a href="#">Logo</a></li>
-					<li><a href="#">--EXPstore--</a></li>
+					<li class="logo"><a href="index">Logo</a></li>
+					<li><a href="store">--EXPstore--</a></li>
 					<li><a href="Mobiles"> Mobiles </a></li>
 					<li><a href="Cameras"> Cameras </a></li>
 					<li><a href="#"> Laptops </a></li>
-					<li><a href="#"> Appliances </a></li>
-					<li><a href="#"> Accessories </a></li>
+					<li><a href="Appliances"> Appliances </a></li>
+					<!-- <li><a href="#"> Accessories </a></li> -->
+					<li><a href="Tablets"> Tablets </a></li>
 					<li class="search">
 						<form class="navbar-search pull-left">
 							<input type="text" class="search-query" placeholder="Search eXpo Store">
@@ -69,11 +70,11 @@
 				</ul>
 			</div>
 		</div>
-		<div class="products-wrapper">
+		<!-- <div class="products-wrapper">
 			<div class="sub-menu container">
 				<div class="title-menu">eX-po store</div>
 				<ul class="right-menu">
-					<li><a href="#">Find eX-po store</a></li>
+					<li><a href="store">Find eX-po store</a></li>
 					<li><a href="#">know us</a></li>
 					<li class="dropdown get-help"><a href="#"
 						class="dropdown-toggle" type="button" id="dropdownMenu1"
@@ -108,4 +109,4 @@
 
 				</ul>
 			</div>
-		</div>
+		</div> -->
