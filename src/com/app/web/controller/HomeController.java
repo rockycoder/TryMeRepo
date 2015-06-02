@@ -47,8 +47,8 @@ public class HomeController {
 
 			model.addAttribute("Category_List", catLst);
 			model.addAttribute("latestProducts", latestProducts);
-			model.addAttribute("Reviews_list", revLst);
-			model.addAttribute("Popular_Products", popularProds);
+			//model.addAttribute("Reviews_list", revLst);
+			//model.addAttribute("Popular_Products", popularProds);
 			
 
 			return "store";
@@ -67,6 +67,7 @@ public class HomeController {
 			List<Products> bestMobiles = service.getLatestProducts();
 			model.addAttribute("All_Mobiles", allMobiles);
 
+			
 			return "Mobiles";
 		} catch (ApplicationException ae) {
 			return "error";
@@ -76,7 +77,9 @@ public class HomeController {
 
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/ajax")
 	public @ResponseBody
+	
 	String hello(@RequestParam(value = "name") String name){
 		System.out.println(name);
 		String str = "{\"user\": { \"name\": \"" + name + "\"}}";  

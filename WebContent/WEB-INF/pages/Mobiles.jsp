@@ -1,6 +1,6 @@
 <%@ include file="header.jsp" %>	
 
-<div class="products-container container">
+<div class="products-container container" id="Main_Div">
 				<ul class="nav-products">
 					<c:forEach var="cl" items="${Category_List}">
 
@@ -120,10 +120,11 @@
     alert(name);
     $.ajax({  
      type : "Get",   
-     url : "Mobiles.jsp",   
+     url : "store.json",   
      data : "name=" + name,     
      success : function(response) {  
-      alert(response);   
+      //alert(response);   
+      $("#Main_Div").html(response);
      },  
      error : function(e) {  
       alert('Error: ' + e);   
