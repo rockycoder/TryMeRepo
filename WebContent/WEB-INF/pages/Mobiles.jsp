@@ -120,11 +120,11 @@
     alert(name);
     $.ajax({  
      type : "Get",   
-     url : "store.json",   
+     url : "ajax",   
      data : "name=" + name,     
      success : function(response) {  
-      //alert(response);   
-      $("#Main_Div").html(response);
+      alert(response);   
+      //$("#Main_Div").html(response);
      },  
      error : function(e) {  
       alert('Error: ' + e);   
