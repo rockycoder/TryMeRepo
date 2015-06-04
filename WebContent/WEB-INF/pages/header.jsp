@@ -62,11 +62,7 @@
 					<li><a href="Appliances"> Appliances </a></li>
 					<!-- <li><a href="#"> Accessories </a></li> -->
 					<li><a href="Tablets"> Tablets </a></li>
-					<li class="search">
-						<form class="navbar-search pull-left">
-							<input type="text" class="search-query" placeholder="Search eXpo Store">
-						</form>
-					</li>
+					
 				</ul>
 			</div>
 		</div>

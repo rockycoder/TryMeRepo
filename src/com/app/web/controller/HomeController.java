@@ -47,8 +47,8 @@ public class HomeController {
 
 			model.addAttribute("Category_List", catLst);
 			model.addAttribute("latestProducts", latestProducts);
-			//model.addAttribute("Reviews_list", revLst);
-			//model.addAttribute("Popular_Products", popularProds);
+			model.addAttribute("Reviews_list", revLst);
+			model.addAttribute("Popular_Products", popularProds);
 			
 
 			return "store";
@@ -76,22 +76,99 @@ public class HomeController {
 		}
 
 	}
+	@RequestMapping(method = RequestMethod.GET, value = "/Tablets")
+	public String Tablets(ModelMap model) {
+		try {
+			List<Products> allTablets = service.getAllProductsByCategory(1);
+			List<Products> bestTablets = service.getLatestProducts();
+			model.addAttribute("All_Mobiles", allTablets); //All_Mobiles need to be changed
+
+			
+			return "Tablets";
+		} catch (ApplicationException ae) {
+			return "error";
+		} catch (Exception e) {
+			return "fatal_error";
+		}
+
+	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/Cameras")
+	public String Cameras(ModelMap model) {
+		try {
+			List<Products> allCameras = service.getAllProductsByCategory(1);
+			List<Products> bestCameras = service.getLatestProducts();
+			String message = "Latest in Cameras";
+			model.addAttribute("All_Mobiles", allCameras); //All_Mobiles need to be changed
+
+			
+			return "Cameras";
+		} catch (ApplicationException ae) {
+			return "error";
+		} catch (Exception e) {
+			return "fatal_error";
+		}
+
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/Laptops")
+	public String Laptops(ModelMap model) {
+		try {
+			List<Products> allLaptops = service.getAllProductsByCategory(1);
+			List<Products> bestLaptops = service.getLatestProducts();
+			String message = "Latest in Laptops";
+			model.addAttribute("All_Mobiles", allLaptops); //All_Mobiles need to be changed
+
+			
+			return "Laptops";
+		} catch (ApplicationException ae) {
+			return "error";
+		} catch (Exception e) {
+			return "fatal_error";
+		}
+
+	}
+	@RequestMapping(method = RequestMethod.GET, value = "/Gaming")
+	public String Gaming(ModelMap model) {
+		try {
+			List<Products> allGaming = service.getAllProductsByCategory(1);
+			List<Products> bestGaming = service.getLatestProducts();
+			String message = "Latest in Gaming";
+			model.addAttribute("All_Mobiles", allGaming); //All_Mobiles need to be changed
+
+			
+			return "Gaming";
+		} catch (ApplicationException ae) {
+			return "error";
+		} catch (Exception e) {
+			return "fatal_error";
+		}
+
+	}
+	@RequestMapping(method = RequestMethod.GET, value = "/Appliances")
+	public String Appliances(ModelMap model) {
+		try {
+			List<Products> allAppliances = service.getAllProductsByCategory(1);
+			List<Products> bestAppliances = service.getLatestProducts();
+			String message = "More about Appliances";
+			model.addAttribute("All_Mobiles", allAppliances); //All_Mobiles need to be changed
+
+			
+			return "Appliances";
+		} catch (ApplicationException ae) {
+			return "error";
+		} catch (Exception e) {
+			return "fatal_error";
+		}
+
+	}
 	@RequestMapping(method = RequestMethod.GET, value = "/ajax")
-	public @ResponseBody
-	
+	public @ResponseBody	
 	String hello(@RequestParam(value = "name") String name){
 		System.out.println(name);
 		String str = "{\"user\": { \"name\": \"" + name + "\"}}";  
 			  return str;  
 	}
 
-	@RequestMapping("/Cameras")
-	public ModelAndView Cameras() {
-		List<Categories> catList = service.getCategories();
-		String message = "Latest in Cameras";
-		ModelAndView model = new ModelAndView("Cameras");
-		model.addObject("Category_List", catList);
-		return model;
-	}
+	
 }

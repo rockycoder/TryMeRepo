@@ -15,7 +15,7 @@
 			<div class="specific-products-wrapper">
 			<div class="products-container container">
 				<ul class="nav-products">
-					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Motorola</span></a></li>
+					<li class="col-xs-2"><a href="/Motorola"><img src="img/products1.jpg" alt="product" /><span class="title-product">Motorola</span></a></li>
 					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">I Phone </span></a></li>
 					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Samsung</span></a></li>
 					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Oppo</span></a></li>

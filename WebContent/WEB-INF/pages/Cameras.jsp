@@ -1,7 +1,10 @@
-<%@ include file="header.jsp" %>
-<div class="products-container container">
+<%@ include file="header.jsp" %>	
+
+<div class="products-container container" id="Main_Div">
 				<ul class="nav-products">
 					<c:forEach var="cl" items="${Category_List}">
+
+
 						<li class="col-xs-2"><a href="${cl.categoryName}"><img
 								src="${cl.categoriesImage}" alt=${cl.categoryName } /><span
 								class="title-product">${cl.categoryName}</span></a></li>
@@ -9,15 +12,28 @@
 					</c:forEach>
 				</ul>
 			</div>
-		</div>	
+			<div class="specific-products-wrapper">
+			<div class="products-container container">
+				<ul class="nav-products">
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Nikon</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Cannon </span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Sony</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Samsung</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Panasonic</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Others</span></a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		<%@ include file="search-bar.jsp" %>	
 		<div class="maincontent-wrapper clearfix">
 			<div class="maincontent container">
 				<div class="top-product col-md-6">
 					<div class="top-product-title">
-						<span>Top Cameras of the Week</span>
+						<span>Top Camera of the Week</span>
 					</div>
 					<div class="top-product-image">
-						<img src="res/img/sony-slt-a37j.jpeg" alt="Samsung-Edge" />
+						<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
 					</div>
 					<div class="title-top-product">Samsung Edge</div>
 					<div class="top-product-description">
@@ -32,13 +48,13 @@
 				</div>
 				<div class="latest-product col-md-6">
 					<div class="panel panel-default">
-					<div class="panel-heading latest-product-title"> <span>Latest Cameras</span></div>
+					<div class="panel-heading latest-product-title"> <span>Latest Camera</span></div>
 						<div class="panel-body">
 					<ul class="demo">
 
 
 
-					<c:forEach var="pl" items="${Product_list}">
+					<c:forEach var="pl" items="${All_Mobiles}">
 
 						<li class="news-item">
 						<div class="latest-product-tile clearfix">
@@ -73,9 +89,30 @@
 				</div>
 			</div>
 		</div>
-				
-	
-	<%@ include file="footer.jsp" %>
+<%@ include file="footer.jsp" %>
+
+<script>  
+   function doAjaxPost() {  
+      
+      
+    var name = $('#name').val();  
+    
+    alert(name);
+    $.ajax({  
+     type : "Get",   
+     url : "ajax",   
+     data : "name=" + name,     
+     success : function(response) {  
+      alert(response);   
+      //$("#Main_Div").html(response);
+     },  
+     error : function(e) {  
+      alert('Error: ' + e);   
+     } 
+     
+    });  
+   }  
+  </script> 	
 <script type="text/javascript">
 $(window).load(function() {
   $('.flexslider').flexslider({
@@ -107,5 +144,3 @@ $(document).ready(function(){
 	});
 });
 </script>
-
-</html>

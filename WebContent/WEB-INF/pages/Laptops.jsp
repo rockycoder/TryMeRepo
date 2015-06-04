@@ -15,12 +15,12 @@
 			<div class="specific-products-wrapper">
 			<div class="products-container container">
 				<ul class="nav-products">
-					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Play Station</span></a></li>
-					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">X-box </span></a></li>
-					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Gaming</span></a></li>
-					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Microsoft</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Samsung</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Apple</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Lenovo</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Asus</span></a></li>
 					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Dell</span></a></li>
-					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Accessories</span></a></li>
+					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">HP</span></a></li>
 				</ul>
 			</div>
 			</div>
@@ -30,7 +30,7 @@
 			<div class="maincontent container">
 				<div class="top-product col-md-6">
 					<div class="top-product-title">
-						<span>Top Games of the Week</span>
+						<span>Top Laptop of the Week</span>
 					</div>
 					<div class="top-product-image">
 						<img src="res/img/s6_1.jpg" alt="Samsung-Edge" />
@@ -48,7 +48,7 @@
 				</div>
 				<div class="latest-product col-md-6">
 					<div class="panel panel-default">
-					<div class="panel-heading latest-product-title"> <span>Latest Games</span></div>
+					<div class="panel-heading latest-product-title"> <span>Latest Laptop</span></div>
 						<div class="panel-body">
 					<ul class="demo">
 
