@@ -18,13 +18,13 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<property name="messageConverters">
 			<list>
 				<ref bean="jsonConverter" />
-				<!-- <ref bean="marshallingConverter" />
-				<ref bean="atomConverter" /> -->
+				<!-- <ref bean="marshallingConverter" /> <ref bean="atomConverter" /> -->
 			</list>
 		</property>
 	</bean>
 
-	<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	<bean id="jsonConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="supportedMediaTypes" value="application/json" />
 	</bean>
 
@@ -62,16 +62,43 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+
 			</props>
+
 		</property>
+
+
 		<property name="annotatedClasses">
 			<list>
-				<value>com.app.pojo.Sample</value>
-				<value>com.app.pojo.Customers</value>
+				<value>com.app.pojo.AddressBook</value>
+				<value>com.app.pojo.Banners</value>
 				<value>com.app.pojo.Categories</value>
+				<value>com.app.pojo.Configuration</value>
+				<value>com.app.pojo.ConfigurationGroup</value>
+				<value>com.app.pojo.Coupon</value>
+				<value>com.app.pojo.Customers</value>
+				<value>com.app.pojo.CustomersBasket</value>
+				<value>com.app.pojo.CustomersBasketAttrs</value>
+				<value>com.app.pojo.CustomersInfo</value>
+				<value>com.app.pojo.ExCookie</value>
+				<value>com.app.pojo.ExCookieId</value>
+				<value>com.app.pojo.Manufacturers</value>
+				<value>com.app.pojo.ManufacturersInfo</value>
+				<value>com.app.pojo.ManufacturersInfoId</value>
+				<value>com.app.pojo.Orders</value>
+				<value>com.app.pojo.OrdersProducts</value>
+				<value>com.app.pojo.OrdersStatus</value>
+				<value>com.app.pojo.OrdersStatusId</value>
 				<value>com.app.pojo.Products</value>
+				<value>com.app.pojo.ProductsVendors</value>
 				<value>com.app.pojo.Reviews</value>
-
+				<value>com.app.pojo.Sample</value>
+				<value>com.app.pojo.Sessions</value>
+				<value>com.app.pojo.Specials</value>
+				<value>com.app.pojo.Vendors</value>
+				<value>com.app.pojo.VendorsInfo</value>
+				<value>com.app.pojo.WhosOnline</value>
+				<value>com.app.pojo.WhosOnlineId</value>
 			</list>
 		</property>
 	</bean>
