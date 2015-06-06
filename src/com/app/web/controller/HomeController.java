@@ -1,5 +1,6 @@
 package com.app.web.controller;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -21,6 +22,8 @@ import com.app.pojo.Categories;
 import com.app.pojo.Customers;
 import com.app.pojo.Products;
 import com.app.pojo.Reviews;
+import com.app.sorting.SortByDateAdded;
+import com.app.sorting.SortByProductsViewed;
 import com.app.web.ServiceApi.ICustomerService;
 
 @Controller
@@ -34,8 +37,15 @@ public class HomeController {
 		String message = "Hello World, Spring 3.0!";
 		return new ModelAndView("index", "message", message);
 	}
+	
+	/*@RequestMapping(method = RequestMethod.GET, value = "{path}")
+	public String index(@PathVariable String path, ModelMap model) {
+		String message = "Hello World, Spring 3.0!";
+		model.addAttribute("message", message);
+		return "index";
+	}*/
 
-	@RequestMapping(method = RequestMethod.GET, value = "{path}")
+	/*@RequestMapping(method = RequestMethod.GET, value = "{path}")
 	public String formSub(@PathVariable String path, ModelMap model) {
 
 		try {
@@ -58,6 +68,31 @@ public class HomeController {
 			return "fatal_error";
 		}
 
+	}*/
+	
+	
+
+	@RequestMapping(method = RequestMethod.GET, value = "{path}")
+	public String formSub(@PathVariable String path, ModelMap model) {
+
+		try {
+			List<Categories> lCategoryLst = service.getCategories();
+			List<Products> lProdLst = service.getAllProductsByCategory(1);
+			List<Reviews> lReviewsLst = service.getReviews();
+
+			model.addAttribute("Category_List", lCategoryLst);
+			model.addAttribute("latestProducts", getLatestProducts(lProdLst));
+			model.addAttribute("Reviews_list", lReviewsLst);
+			model.addAttribute("Popular_Products", getPopularProducts(lProdLst));
+
+			return "store";
+		} catch (ApplicationException ae) {
+			return "error";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "fatal_error";
+		}
+
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/Mobiles")
@@ -76,6 +111,25 @@ public class HomeController {
 		}
 
 	}
+	
+	/*@RequestMapping(method = RequestMethod.GET, value = "{path}")
+	public String Mobiles(@PathVariable String path, ModelMap model) {
+		try {
+			List<Products> lAllMobiles = service.getAllProductsByCategory(1);
+			List<Products> lBestMobiles = getPopularProducts(lAllMobiles);
+			model.addAttribute("All_Mobiles", lAllMobiles);
+			model.addAttribute("BEST_MOBILES", lBestMobiles);
+
+			return "Mobiles";
+		} catch (ApplicationException ae) {
+			return "error";
+		} catch (Exception e) {
+			return "fatal_error";
+		}
+
+	}
+	*/
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/Tablets")
 	public String Tablets(ModelMap model) {
 		try {
@@ -93,7 +147,7 @@ public class HomeController {
 
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/Cameras")
+	/*@RequestMapping(method = RequestMethod.GET, value = "/Cameras")
 	public String Cameras(ModelMap model) {
 		try {
 			List<Products> allCameras = service.getAllProductsByCategory(1);
@@ -109,7 +163,16 @@ public class HomeController {
 			return "fatal_error";
 		}
 
+	}*/
+	
+/*	@RequestMapping(method = RequestMethod.GET, value = "{path}")
+	public String Cameras(@PathVariable String path, ModelMap model) {
+		List<Categories> catList = service.getCategories();
+		String message = "Latest in Cameras";
+		model.addAttribute("Category_List", catList);
+		return "Cameras";
 	}
+*/
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/Laptops")
 	public String Laptops(ModelMap model) {
@@ -168,6 +231,35 @@ public class HomeController {
 		System.out.println(name);
 		String str = "{\"user\": { \"name\": \"" + name + "\"}}";  
 			  return str;  
+	}
+	
+	private List<Products> getPopularProducts(List<Products> lProdLst) {
+		List<Products> lPopularProds = lProdLst.subList(0, lProdLst.size() - 1);
+		Collections.sort(lPopularProds,
+				Collections.reverseOrder(new SortByProductsViewed()));
+		
+		if(lPopularProds.size()<ControllerUtilsConstants.NUMBER_OF_POPULAR_PRODUCTS)
+		{
+			return lPopularProds.subList(0,
+					lPopularProds.size()-1);
+		}
+		return lPopularProds.subList(0,
+				ControllerUtilsConstants.NUMBER_OF_POPULAR_PRODUCTS);
+	}
+
+	private List<Products> getLatestProducts(List<Products> lProdLst) {
+		List<Products> lLatestProds = lProdLst.subList(0, lProdLst.size() - 1);
+		Collections.sort(lLatestProds,
+				Collections.reverseOrder(new SortByDateAdded<Products>()));
+		
+		if(lLatestProds.size()<ControllerUtilsConstants.NUMBER_OF_LATEST_PRODUCTS)
+		{
+			return lLatestProds.subList(0,
+					lLatestProds.size()-1);
+		}
+		
+		return lLatestProds.subList(0,
+				ControllerUtilsConstants.NUMBER_OF_LATEST_PRODUCTS);
 	}
 
 	
