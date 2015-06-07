@@ -35,6 +35,7 @@
 	<script type="text/javascript" src="res/js/scripts.js"></script>
 	<script type="text/javascript" src="res/js/jquery.flexslider.js"></script>
 	<script type="text/javascript" src="res/js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript" src="res/js/scripts.js"></script>
 	
 	<script src="res/js/megamenu.js"></script>
 	<script src="res/js/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>

@@ -8,8 +8,9 @@
 		</c:forEach>
 	</ul>
 </div>
-<div class="carousel slide carousel-wrap" id="carousel-431794">
-		<div class="search-carousel-wrapper">
+<%@ include file="search-bar.jsp" %>	
+<div class="carousel slide carousel-wrap carousel-center" id="carousel-431794">
+		<!-- <div class="search-carousel-wrapper">
 			<div class="search-input">
 				<form class="">
 					<input type="text" placeholder="Search eXpo Store">
@@ -27,7 +28,7 @@
 			</div>
 			<div class="search-button">Search</div>
 
-		</div>
+		</div> -->
 			<ol class="carousel-indicators">
 				<li data-slide-to="0" data-target="#carousel-431794">
 				</li>
