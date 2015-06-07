@@ -490,5 +490,6 @@ section.grey{
 }
 .carousel-center{
   width: 960px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right:auto;
 	}
