@@ -11,7 +11,7 @@ public class SortByLastModified<T extends Comparable<T>> implements Comparator<T
 	public int compare(T o1, T o2) {
 		if(o1 instanceof Products)
 		{
-			return ((Products) o1).getLastModified().compareTo(((Products)o2).getLastModified());
+			return ((Products) o1).getProductsLastModified().compareTo(((Products)o2).getProductsLastModified());
 		}
 		else if(o1 instanceof Categories)
 		{
