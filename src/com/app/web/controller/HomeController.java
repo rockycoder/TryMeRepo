@@ -212,7 +212,7 @@ public class HomeController
 		try 
 		{
 			List<Products> allGaming = service.getAllProductsByCategory(1);
-			List<Products> bestGaming = service.getLatestProducts();
+			//List<Products> bestGaming = service.getLatestProducts();
 			String message = "Latest in Gaming";
 			model.addAttribute("All_Mobiles", allGaming); //All_Mobiles need to be changed
             return "Gaming";
