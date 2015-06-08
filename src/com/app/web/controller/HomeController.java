@@ -133,11 +133,10 @@ public class HomeController {
 	@RequestMapping(method = RequestMethod.GET, value = "/Tablets")
 	public String Tablets(ModelMap model) {
 		try {
-			List<Products> allTablets = service.getAllProductsByCategory(1);
+			List<Products> allTablets = service.getAllProductsByCategory(3);
 			List<Products> bestTablets = service.getLatestProducts();
 			model.addAttribute("All_Mobiles", allTablets); //All_Mobiles need to be changed
 
-			
 			return "Tablets";
 		} catch (ApplicationException ae) {
 			return "error";
@@ -177,7 +176,7 @@ public class HomeController {
 	@RequestMapping(method = RequestMethod.GET, value = "/Laptops")
 	public String Laptops(ModelMap model) {
 		try {
-			List<Products> allLaptops = service.getAllProductsByCategory(1);
+			List<Products> allLaptops = service.getAllProductsByCategory(4);
 			List<Products> bestLaptops = service.getLatestProducts();
 			String message = "Latest in Laptops";
 			model.addAttribute("All_Mobiles", allLaptops); //All_Mobiles need to be changed
