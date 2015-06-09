@@ -10,15 +10,14 @@ $(document).ready(function(){
 
 $(window).scroll(function (event) {
     var scroll = $(window).scrollTop();
-    // $('.search-wrapper').offset().top
     if(scroll > 202){
     	
     	$('.search-wrapper').addClass('fixed-search');
-    	console.log($('.search-wrapper').offset().top);
+    	$(".logo-search").show();
 	}
 	else{
 		$('.search-wrapper').removeClass('fixed-search');
-		console.log('false');
+		$(".logo-search").hide();
     }
 
  
