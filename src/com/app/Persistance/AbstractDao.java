@@ -16,6 +16,7 @@ import com.app.Utils.ApplicationException;
 import com.app.pojo.Categories;
 import com.app.pojo.Products;
 import com.app.pojo.Reviews;
+import com.app.pojo.User;
 import com.app.sorting.SortByDateAdded;
 import com.app.sorting.SortByProductsOrdered;
 import com.app.sorting.SortByProductsViewed;
@@ -230,6 +231,26 @@ public class AbstractDao extends CustomDaoSupport {
 		Collections.sort(prods, Collections.reverseOrder(new SortByProductsOrdered()));
 		
 		return prods.get(0);
+	}
+	
+	
+	public User findByUserId(Integer id)
+	{
+		Session session = null;
+		try {
+			session = getSession();
+			User user = (User) session
+					.createQuery(DaoConstants.FIND_USER_BY_ID)
+					.setParameter("cid", id).uniqueResult();
+
+			return user;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeSession(session);
+		}
+		return null;
+		
 	}
 
 }

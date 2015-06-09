@@ -99,6 +99,9 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 				<value>com.app.pojo.VendorsInfo</value>
 				<value>com.app.pojo.WhosOnline</value>
 				<value>com.app.pojo.WhosOnlineId</value>
+				<value>com.app.pojo.User</value>
+				<value>com.app.pojo.UserRole</value>
+				
 			</list>
 		</property>
 	</bean>

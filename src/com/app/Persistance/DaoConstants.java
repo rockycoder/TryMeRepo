@@ -10,6 +10,7 @@ public class DaoConstants {
 	 * HQL QUERIES  START
 	 */
 	
+	public static final String FIND_USER_BY_ID="from User where cid=?";
 	public static final String FIND_BY_ID="from sample where id=?";
 	public static final String ALL_CATEGORIES="from Categories";
 	public static final String ALL_PRODUCTS="from Products";

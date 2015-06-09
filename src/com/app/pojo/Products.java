@@ -232,7 +232,7 @@ public class Products implements java.io.Serializable {
 	}
 	
 	
-	@Column(name = "Short_Desc")
+	@Column(name = "Short_Desc",length = 8000)
 	public String getShortDesc() {
 		return shortDesc;
 	}
