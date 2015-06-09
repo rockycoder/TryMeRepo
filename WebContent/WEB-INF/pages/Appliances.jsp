@@ -1,21 +1,20 @@
 <%@ include file="header.jsp" %>	
-
 <div class="products-container container" id="Main_Div">
-				<ul class="nav-products">
-					<c:forEach var="cl" items="${Category_List}">
-
-
-						<li class="col-xs-2"><a href="${cl.categoryName}"><img
-								src="${cl.categoriesImage}" alt=${cl.categoryName } /><span
-								class="title-product">${cl.categoryName}</span></a></li>
-
-					</c:forEach>
-				</ul>
-			</div>
-			<div class="specific-products-wrapper">
-			<div class="products-container container">
-				<ul class="nav-products">
-					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Samsung</span></a></li>
+<ul class="nav-products">
+<c:forEach var="cl" items="${Category_List}">
+<li class="col-xs-2">
+<a href="${cl.categoryName}">
+<img src="${cl.categoriesImage}" alt=${cl.categoryName } />
+<span class="title-product">${cl.categoryName}</span>
+</a>
+</li>
+</c:forEach>
+</ul>
+</div>
+<div class="specific-products-wrapper">
+<div class="products-container container">
+<ul class="nav-products">
+<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Samsung</span></a></li>
 					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Apple</span></a></li>
 					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Lenovo</span></a></li>
 					<li class="col-xs-2"><a href="#"><img src="img/products1.jpg" alt="product" /><span class="title-product">Asus</span></a></li>
@@ -48,7 +47,7 @@
 				</div>
 				<div class="latest-product col-md-6">
 					<div class="panel panel-default">
-					<div class="panel-heading latest-product-title"> <span>Latest Accessories</span></div>
+					<div class="panel-heading latest-product-title"> <span>Latest Appliances</span></div>
 						<div class="panel-body">
 					<ul class="demo">
 
@@ -71,12 +70,12 @@
 								<div class="info-row clearfix">
 									<span class="label-latest-product pull-left">Samsung
 										Edge : </span><span class="value-latest-product pull-right">
-										${pl.productsPrice} </span>
+										${pl.productsPrice}</span>
 								</div>
 								<div class="info-row clearfix">
-									<span class="label-latest-product pull-left">Samsung
-										Edge : </span><span class="value-latest-product pull-right">
-										${pl.productsPrice} </span>
+									<span class="label-latest-product pull-left">
+										Description:</span><span class="value-latest-product pull-right">
+										${pl.shortDesc} </span>
 								</div>
 								<div class="price-latest-product">${pl.productsPrice}</div>
 							</div>

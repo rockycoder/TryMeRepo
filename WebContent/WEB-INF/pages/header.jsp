@@ -59,7 +59,7 @@
 					<li><a href="store">--EXPstore--</a></li>
 					<li><a href="Mobiles"> Mobiles </a></li>
 					<li><a href="Cameras"> Cameras </a></li>
-					<li><a href="#"> Laptops </a></li>
+					<li><a href="Laptops"> Laptops </a></li>
 					<li><a href="Appliances"> Appliances </a></li>
 					<!-- <li><a href="#"> Accessories </a></li> -->
 					<li><a href="Tablets"> Tablets </a></li>
