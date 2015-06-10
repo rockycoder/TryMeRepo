@@ -92,7 +92,7 @@ public class Reviews implements java.io.Serializable {
 		this.reviewsRating = reviewsRating;
 	}
 
-	@Column(name = "review_text")
+	@Column(name = "review_text",length = 1000)
 	public String getReviewText() {
 		return this.reviewText;
 	}

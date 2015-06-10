@@ -13,14 +13,22 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 public interface ICustomerService {
 
 	void save(Object cust);
+
 	List getCategories();
+
 	List getProducts();
+
 	List<Products> getAllProductsByCategory(int id) throws ApplicationException;
+
 	List<Reviews> getReviews();
+
 	List<Products> getLatestProducts() throws ApplicationException;
+
 	List<Products> getPopularProducts() throws ApplicationException;
+
 	List<Products> getPopularProductsByCategoryId(int id);
 
-	UserDetails loadUserByUsername(Integer id) throws UsernameNotFoundException;
+	UserDetails loadUserByCustomername(Integer id)
+			throws UsernameNotFoundException;
 
 }

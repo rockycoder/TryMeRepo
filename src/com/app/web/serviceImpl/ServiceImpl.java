@@ -20,7 +20,6 @@ import com.app.pojo.Categories;
 import com.app.pojo.Customers;
 import com.app.pojo.Products;
 import com.app.pojo.Reviews;
-import com.app.pojo.User;
 import com.app.pojo.UserRole;
 import com.app.web.ServiceApi.ICustomerService;
 
@@ -32,21 +31,21 @@ public class ServiceImpl implements ICustomerService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public UserDetails loadUserByUsername(final Integer id)
+	public UserDetails loadUserByCustomername(final Integer id)
 			throws UsernameNotFoundException {
 
-		User user = dao.findByUserId(id);
-		List<GrantedAuthority> authorities = buildUserAuthority(user
-				.getUserRole());
+		Customers cust =dao.findByCustomerId(id);
+		List<GrantedAuthority> authorities = buildUserAuthority(cust
+				.getUserRoles());
 
-		return buildUserForAuthentication(user, authorities);
+		return buildUserForAuthentication(cust, authorities);
 
 	}
 
 	private org.springframework.security.core.userdetails.User buildUserForAuthentication(
-			User user, List<GrantedAuthority> authorities) {
+			Customers customer, List<GrantedAuthority> authorities) {
 		return new org.springframework.security.core.userdetails.User(
-				user.getUsername(), user.getPassword(), user.isEnabled(), true,
+				customer.getCustomersFirstname(), customer.getCustomersPassword(), customer.getEnabled(), true,
 				true, true, authorities);
 	}
 

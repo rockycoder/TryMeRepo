@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 
 import com.app.Utils.ApplicationException;
 import com.app.pojo.Categories;
+import com.app.pojo.Customers;
 import com.app.pojo.Products;
 import com.app.pojo.Reviews;
-import com.app.pojo.User;
 import com.app.sorting.SortByDateAdded;
 import com.app.sorting.SortByProductsOrdered;
 import com.app.sorting.SortByProductsViewed;
@@ -234,16 +234,16 @@ public class AbstractDao extends CustomDaoSupport {
 	}
 	
 	
-	public User findByUserId(Integer id)
+	public Customers findByCustomerId(Integer id)
 	{
 		Session session = null;
 		try {
 			session = getSession();
-			User user = (User) session
-					.createQuery(DaoConstants.FIND_USER_BY_ID)
+			Customers cust = (Customers)session
+					.createQuery(DaoConstants.FIND_CUSTOMER_BY_ID)
 					.setParameter("cid", id).uniqueResult();
 
-			return user;
+			return cust;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

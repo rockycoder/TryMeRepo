@@ -5,10 +5,14 @@ package com.app.pojo;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -21,6 +25,10 @@ import javax.persistence.TemporalType;
 @Table(name = "customers")
 public class Customers implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int customersId;
 	private Integer addressBookId;
 	private Integer ordersId;
@@ -33,6 +41,9 @@ public class Customers implements java.io.Serializable {
 	private Integer customersDefaultAddressId;
 	private String customersTelephone;
 	private String customersPassword;
+	private Boolean enabled=false;
+	
+	private Set<UserRole> userRoles= new HashSet<UserRole>(0);
 	private Set<Reviews> reviewses = new HashSet<Reviews>(0);
 
 	public Customers() {
@@ -42,12 +53,15 @@ public class Customers implements java.io.Serializable {
 		this.customersId = customersId;
 	}
 
+
 	public Customers(int customersId, Integer addressBookId, Integer ordersId,
 			Integer customersBasketId, Character customersGender,
 			String customersFirstname, String customersLastname,
 			Date customersDob, String customersEmailAddress,
 			Integer customersDefaultAddressId, String customersTelephone,
-			String customersPassword, Set<Reviews> reviewses) {
+			String customersPassword, Boolean enabled, Set<UserRole> userRoles,
+			Set<Reviews> reviewses) {
+		super();
 		this.customersId = customersId;
 		this.addressBookId = addressBookId;
 		this.ordersId = ordersId;
@@ -60,6 +74,8 @@ public class Customers implements java.io.Serializable {
 		this.customersDefaultAddressId = customersDefaultAddressId;
 		this.customersTelephone = customersTelephone;
 		this.customersPassword = customersPassword;
+		this.enabled = enabled;
+		this.userRoles = userRoles;
 		this.reviewses = reviewses;
 	}
 
@@ -137,7 +153,7 @@ public class Customers implements java.io.Serializable {
 		this.customersDob = customersDob;
 	}
 
-	@Column(name = "customers_email_address", length = 96)
+	@Column(name = "customers_email_address", length = 100)
 	public String getCustomersEmailAddress() {
 		return this.customersEmailAddress;
 	}
@@ -172,6 +188,15 @@ public class Customers implements java.io.Serializable {
 	public void setCustomersPassword(String customersPassword) {
 		this.customersPassword = customersPassword;
 	}
+	
+	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customers")
 	public Set<Reviews> getReviewses() {
@@ -182,4 +207,18 @@ public class Customers implements java.io.Serializable {
 		this.reviewses = reviewses;
 	}
 
+	@ManyToMany(fetch = FetchType.LAZY, cascade={CascadeType.ALL})
+	@JoinTable(name = "customers_Roles",
+	joinColumns = { @JoinColumn(name = "customers_idd", nullable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "user_role_id", 
+					nullable = false) })
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	
 }

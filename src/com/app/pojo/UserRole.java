@@ -1,11 +1,16 @@
 package com.app.pojo;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -14,17 +19,21 @@ import javax.persistence.Table;
 public class UserRole{
 	 
 	private Integer userRoleId;
-	private User user;
 	private String role;
- 
+	private Set<Customers> customers = new HashSet<Customers>(0);
+
 	public UserRole() {
 	}
  
-	public UserRole(User user, String role) {
-		this.user = user;
+
+	public UserRole(Integer userRoleId, String role,
+			Set<com.app.pojo.Customers> customers) {
+		super();
+		this.userRoleId = userRoleId;
 		this.role = role;
+		customers = customers;
 	}
- 
+
 	@Id
 	@GeneratedValue
 	@Column(name = "user_role_id", 
@@ -36,17 +45,18 @@ public class UserRole{
 	public void setUserRoleId(Integer userRoleId) {
 		this.userRoleId = userRoleId;
 	}
- 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "username", nullable = false)
-	public User getUser() {
-		return this.user;
+
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "userRoles")
+	public Set<Customers> getCustomers() {
+		return customers;
 	}
- 
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setCustomers(Set<Customers> customers) {
+		this.customers = customers;
 	}
- 
+
+
+
 	@Column(name = "role", nullable = false, length = 45)
 	public String getRole() {
 		return this.role;

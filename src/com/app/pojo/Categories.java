@@ -29,9 +29,6 @@ public class Categories implements java.io.Serializable {
 	private Date dateAdded;
 	private Date lastModified;
 	private String categoryName;
-	private String categoriesimage;
-	private byte[] dateadded;
-	private byte[] lastmodified;
 	private Long sortorder;
 	private List<Products> productses = new ArrayList<Products>(0);
 
@@ -41,19 +38,18 @@ public class Categories implements java.io.Serializable {
 	public Categories(int categoriesId) {
 		this.categoriesId = categoriesId;
 	}
-
+	
+	
+	
 	public Categories(int categoriesId, String categoriesImage, Date dateAdded,
-			Date lastModified, String categoryName, String categoriesimage,
-			byte[] dateadded, byte[] lastmodified, Long sortorder,
+			Date lastModified, String categoryName, Long sortorder,
 			List<Products> productses) {
+		super();
 		this.categoriesId = categoriesId;
 		this.categoriesImage = categoriesImage;
 		this.dateAdded = dateAdded;
 		this.lastModified = lastModified;
 		this.categoryName = categoryName;
-		this.categoriesimage = categoriesimage;
-		this.dateadded = dateadded;
-		this.lastmodified = lastmodified;
 		this.sortorder = sortorder;
 		this.productses = productses;
 	}
@@ -106,32 +102,7 @@ public class Categories implements java.io.Serializable {
 		this.categoryName = categoryName;
 	}
 
-	@Column(name = "categoriesimage")
-	public String getCategoriesimage() {
-		return this.categoriesimage;
-	}
-
-	public void setCategoriesimage(String categoriesimage) {
-		this.categoriesimage = categoriesimage;
-	}
-
-	@Column(name = "dateadded")
-	public byte[] getDateadded() {
-		return this.dateadded;
-	}
-
-	public void setDateadded(byte[] dateadded) {
-		this.dateadded = dateadded;
-	}
-
-	@Column(name = "lastmodified")
-	public byte[] getLastmodified() {
-		return this.lastmodified;
-	}
-
-	public void setLastmodified(byte[] lastmodified) {
-		this.lastmodified = lastmodified;
-	}
+	
 
 	@Column(name = "sortorder")
 	public Long getSortorder() {

@@ -27,6 +27,10 @@ import javax.persistence.TemporalType;
 @Table(name = "products")
 public class Products implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int productsId;
 	private Categories categories;
 	private Integer productsQuantity;
@@ -108,7 +112,7 @@ public class Products implements java.io.Serializable {
 		this.productsQuantity = productsQuantity;
 	}
 
-	@Column(name = "products_model", length = 12)
+	@Column(name = "products_model", length = 100)
 	public String getProductsModel() {
 		return this.productsModel;
 	}
@@ -117,7 +121,7 @@ public class Products implements java.io.Serializable {
 		this.productsModel = productsModel;
 	}
 
-	@Column(name = "products_image", length = 64)
+	@Column(name = "products_image", length = 100)
 	public String getProductsImage() {
 		return this.productsImage;
 	}
@@ -183,7 +187,7 @@ public class Products implements java.io.Serializable {
 		this.productsStatus = productsStatus;
 	}
 
-	@Column(name = "products_url")
+	@Column(name = "products_url",length = 500)
 	public String getProductsUrl() {
 		return this.productsUrl;
 	}
@@ -222,7 +226,7 @@ public class Products implements java.io.Serializable {
 	}
 	
 	
-	@Column(name = "manufacturer_name")
+	@Column(name = "manufacturer_name",length = 100)
 	public String getManufacturersName() {
 		return manufacturersName;
 	}

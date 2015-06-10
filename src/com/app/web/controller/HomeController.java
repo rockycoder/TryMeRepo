@@ -117,15 +117,14 @@ public class HomeController
 
      }
 	
-	/*@RequestMapping(method = RequestMethod.GET, value = "{path}")
+	/*@RequestMapping(method = RequestMethod.GET, value = "{mobiles}")
 	public String Mobiles(@PathVariable String path, ModelMap model) {
 		try {
-			List<Products> lAllMobiles = service.getAllProductsByCategory(1);
-			List<Products> lBestMobiles = getPopularProducts(lAllMobiles);
-			model.addAttribute("All_Mobiles", lAllMobiles);
-			model.addAttribute("BEST_MOBILES", lBestMobiles);
-
-			return "Mobiles";
+			List<Products> allMobiles = service.getAllProductsByCategory(1);
+		  //List<Products> bestMobiles = service.getLatestProducts();
+			model.addAttribute("All_Mobiles", allMobiles);
+            return "Mobiles";
+			
 		} catch (ApplicationException ae) {
 			return "error";
 		} catch (Exception e) {
