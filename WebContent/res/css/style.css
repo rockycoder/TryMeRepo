@@ -493,3 +493,34 @@ section.grey{
   margin-left: auto;
   margin-right:auto;
 	}
+
+ul.social-media{
+	padding: 0;
+	margin-top: 0;
+	list-style-type: none;
+
+}
+
+ul.social-media li{
+	float: left;
+	margin-right: 10px;
+	padding: 10px 0;
+	cursor: pointer;
+}
+
+.footer-wrapper .footer-mouse{
+	height: 160px;
+	position: absolute;
+	left: 46%;
+  top: -58px;
+}
+.fa-facebook-square{
+	color: rgb(59, 86, 169);
+}
+.fa-twitter-square{
+	  color: rgb(50, 138, 255);
+}
+
+.fa-google-plus-square{
+	color:rgb(195, 11, 60);
+}

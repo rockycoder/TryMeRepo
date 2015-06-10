@@ -1,5 +1,14 @@
 <div class="footer-wrapper clearfix">
+<img class="footer-mouse" src="https://961e845f6113f5a8992beb2c1eb3e4deffaeda76.googledrive.com/host/0B24Zcly7YY4CTkxSdDZINWhBVEE">
 			<div class="footer container">
+			<div class="col-md-12">
+					<ul class="social-media">
+						<li><i class="fa fa-facebook-square fa-3x"></i></li>
+						<li><i class="fa fa-twitter-square fa-3x"></i></li>
+						<li><i class="fa fa-youtube-square fa-3x"></i></li>
+						<li><i class="fa  fa-google-plus-square fa-3x"></i></li>
+					</ul>	
+				</div>
 				<div class="footer-nav col-md-12">
 					<div class="footer-text">
 						<span>Shop the available Products at Online Store

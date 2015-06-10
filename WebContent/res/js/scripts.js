@@ -13,7 +13,7 @@ $(window).scroll(function (event) {
     if(scroll > 202){
     	
     	$('.search-wrapper').addClass('fixed-search');
-    	$(".logo-search").show();
+    	$(".logo-search").show(500);
 	}
 	else{
 		$('.search-wrapper').removeClass('fixed-search');

@@ -16,7 +16,7 @@
 	<link href="res/css/flexslider.css" rel="stylesheet">
 	<link href="res/css/bootstrap.css" rel="stylesheet">
 	<link href="res/css/bootstrap-responsive.css" rel="stylesheet">
-
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -67,7 +67,7 @@
 				</ul>
 			</div>
 		</div>
-		<!-- <div class="products-wrapper">
+		 <div class="products-wrapper">
 			<div class="sub-menu container">
 				<div class="title-menu">eX-po store</div>
 				<ul class="right-menu">
@@ -106,4 +106,4 @@
 
 				</ul>
 			</div>
-		</div> -->
+		</div> 
