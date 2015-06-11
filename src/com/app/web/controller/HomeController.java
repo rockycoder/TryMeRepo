@@ -204,6 +204,36 @@ public class HomeController
 		}
     }
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/Loggedin")
+	public String Loggedin(ModelMap model) 
+    {
+    	try 
+		{
+			
+			if(service.doTwitterSignIn())
+			{
+				List<Products> allAppliances = service.getAllProductsByCategory(6);
+			
+		    //List<Products> bestAppliances = service.getLatestProducts();
+			//String message = "More about Appliances";
+			//model.addAttribute("All_Mobiles", allAppliances); //All_Mobiles need to be changed
+            return "Loggedin";
+			}
+			else
+			return"error";
+		} 
+		catch (ApplicationException ae) 
+		{
+			return "error";
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return "fatal_error";
+		}
+
+     }
+	
 //Request mapping and function to get all the details of Games available in the database 
 	@RequestMapping(method = RequestMethod.GET, value = "/Gaming")
 	public String Gaming(ModelMap model) 

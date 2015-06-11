@@ -1,5 +1,6 @@
 package com.app.web.serviceImpl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -23,12 +24,18 @@ import com.app.pojo.Reviews;
 import com.app.pojo.UserRole;
 import com.app.web.ServiceApi.ICustomerService;
 
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+import twitter4j.auth.RequestToken;
 @Service
 public class ServiceImpl implements ICustomerService {
 
 	@Autowired
 	AbstractDao dao;
-
+	private final static String CONSUMER_KEY ="KyMqM8e2eKBXZDEyMGBLMaDOn";
+	private final static String CONSUMER_KEY_SECRET ="QSxFGfvEC6yb1pJRZ25fN7WxjxdXw8hUzqsFpLXznLkfppWe1G";
 	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByCustomername(final Integer id)
@@ -63,7 +70,31 @@ public class ServiceImpl implements ICustomerService {
 
 		return Result;
 	}
-
+	@Override
+	public boolean doTwitterSignIn()throws TwitterException,IOException
+    {
+		 Twitter twitter = new TwitterFactory().getInstance();
+		 twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_KEY_SECRET);
+		 RequestToken requestToken =twitter.getOAuthRequestToken();
+		 AccessToken accessToken = null;
+		  
+		   try {
+		 
+		    accessToken = twitter.getOAuthAccessToken(requestToken);
+		    
+			
+			} 
+			 catch (TwitterException te) 
+			 {
+				 System.out.println("Failed to get access token, caused by: "+ te.getMessage());  
+			
+			 }
+		   if(accessToken!=null)
+			   return true;
+		   return false;
+    	
+    }
+	
 	@Override
 	public List<Categories> getCategories() {
 		// TODO Auto-generated method stub

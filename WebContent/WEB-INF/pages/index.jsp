@@ -1914,6 +1914,7 @@ $(document).ready(function(){
             <li>
               <a href="#contact"> Contact Us </a>
             </li>
+             
           </ul>
         </div>
         <!-- <header class="">
@@ -1956,7 +1957,9 @@ $(document).ready(function(){
             <a href="Cameras" class="menu-item"> <i class="fa fa-camera fa-2x"></i> </a>
             <a href="Laptops" class="menu-item"> <i class="fa fa-laptop fa-2x"></i> </a>
             <a href="Tablet" class="menu-item"> <i class="fa fa-tablet fa-2x"></i> </a>
+            
           </nav>
+           
         <div class="laptop-wrapper col-sm-6 col-md-6">
           <div class="laptop ">
             <div class="screen bg-explore">
@@ -1978,6 +1981,7 @@ $(document).ready(function(){
             </div>
           </div>
         </div>
+         <a href="loggedin" class="menu-item">Sign In with Twitter</a>
         <div class="site-text-wrapper col-sm-6 col-md-6">
           <div class="site-text">
             <!-- <h2>Experaiser</h2> -->

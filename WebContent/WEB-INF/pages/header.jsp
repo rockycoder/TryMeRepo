@@ -63,7 +63,7 @@
 					<li><a href="Appliances"> Appliances </a></li>
 					<!-- <li><a href="#"> Accessories </a></li> -->
 					<li><a href="Tablets"> Tablets </a></li>
-					
+					<li><a href="Loggedin"> Loggedin </a></li>
 				</ul>
 			</div>
 		</div>
