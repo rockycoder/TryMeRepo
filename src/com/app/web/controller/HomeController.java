@@ -24,7 +24,11 @@ import com.app.pojo.Reviews;
 import com.app.sorting.SortByDateAdded;
 import com.app.sorting.SortByProductsViewed;
 import com.app.web.ServiceApi.ICustomerService;
-
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+import twitter4j.auth.RequestToken;
 @Controller
 public class HomeController 
 {
@@ -37,6 +41,36 @@ public class HomeController
 		return new ModelAndView("index", "message", message);
 	}
 	
+    @RequestMapping(method = RequestMethod.POST, value = "/Loggedin")
+	public String Loggedin(ModelMap model) 
+    {
+    	try 
+		{
+			
+			if(service.doTwitterSignIn())
+			{
+				List<Products> allAppliances = service.getAllProductsByCategory(6);
+			
+		    //List<Products> bestAppliances = service.getLatestProducts();
+			//String message = "More about Appliances";
+			//model.addAttribute("All_Mobiles", allAppliances); //All_Mobiles need to be changed
+            return "Loggedin";
+			}
+			else
+			return"error";
+		} 
+		catch (ApplicationException ae) 
+		{
+			ae.printStackTrace();
+			return "error";
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return "fatal_error";
+		}
+
+     }
 	/*@RequestMapping(method = RequestMethod.GET, value = "{path}")
 	public String index(@PathVariable String path, ModelMap model) {
 		String message = "Hello World, Spring 3.0!";
@@ -204,35 +238,7 @@ public class HomeController
 		}
     }
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/Loggedin")
-	public String Loggedin(ModelMap model) 
-    {
-    	try 
-		{
-			
-			if(service.doTwitterSignIn())
-			{
-				List<Products> allAppliances = service.getAllProductsByCategory(6);
-			
-		    //List<Products> bestAppliances = service.getLatestProducts();
-			//String message = "More about Appliances";
-			//model.addAttribute("All_Mobiles", allAppliances); //All_Mobiles need to be changed
-            return "Loggedin";
-			}
-			else
-			return"error";
-		} 
-		catch (ApplicationException ae) 
-		{
-			return "error";
-		} 
-		catch (Exception e) 
-		{
-			e.printStackTrace();
-			return "fatal_error";
-		}
-
-     }
+	
 	
 //Request mapping and function to get all the details of Games available in the database 
 	@RequestMapping(method = RequestMethod.GET, value = "/Gaming")

@@ -86,6 +86,7 @@ public class ServiceImpl implements ICustomerService {
 			} 
 			 catch (TwitterException te) 
 			 {
+				 te.printStackTrace();
 				 System.out.println("Failed to get access token, caused by: "+ te.getMessage());  
 			
 			 }
