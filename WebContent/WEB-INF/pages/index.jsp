@@ -12,6 +12,7 @@
   <style type="text/css">
 /* Styles go here */
 
+
 html, body{
   margin: 0;
   padding: 0;
@@ -65,7 +66,7 @@ section{
   height: 250px;
   border: 5px solid #444;
   border-radius: 10px 10px 0 0;
-  /* background: #fff url(res/img/color-hands.png) no-repeat; */
+  /* background: #fff url(img/color-hands.png) no-repeat; */
   /* background: #fff url(http://gracespace.org.uk/wp-content/uploads/2012/01/explore-logo-300x114.gif) no-repeat; */
   background-size: 74%;
   background-position: 68px 18px;
@@ -1600,6 +1601,386 @@ h1 {
 
 /*  END CSS STYLES For GOOEY MENU  */
 
+/*CSS Fror conatct us */
+.contact-us{
+  width: 980px;
+  background-color: #f2f2f2;
+  padding: 55px;
+  
+}
+.contact-us-division{
+    padding: 0 40px;
+}
+.contact-us-form{
+      position: relative;
+  min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+}
+
+.contact-message{
+  font-size: 15px;
+  padding-bottom: 10px;
+  text-align: left;
+  font-weight: lighter;
+}
+.contact-us-division{
+    display: table-cell;
+  padding: 25px;
+}
+
+#video-bg {
+position: absolute;
+right: 0;
+bottom: 0;
+width: auto;
+min-width: 100%;
+height: auto;
+min-height: 100%;
+z-index: -100;
+background: transparent url(video-bg.jpg) no-repeat;
+background-size: cover;
+opacity: 0.3
+}
+
+.about-section{
+  position: relative;
+}
+/*logo header*/
+ .site-board-wrapper{
+    height: 160px;   
+    width: 220px;
+    /* border: 1px solid #f2f2f2; */
+    display: block;
+    position: absolute;
+    top: 10px;
+  right: 20px;
+    /* animation: swinging 60s infinite; */
+}
+.board-cord{
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+.board-cord span{
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #16a085;
+    top: -8px;
+    left: 50%;
+    margin-left: -9px;
+    z-index: 2;
+}
+.board-cord:before{
+    content: '';
+    height: 100px;
+    width: 2px;
+    background: #c0392b;
+    position: absolute;
+    left: 90px;
+    top: -5px;
+    z-index: 0;
+    transform: rotate(24deg);
+}
+.board-cord:after{
+    content: '';
+    height: 100px;
+    width: 2px;
+    background: #c0392b;
+    position: absolute;
+    right: 92px;
+    top: -5px;
+    z-index: 0;
+    transform: rotate(-24deg);
+}
+.site-board{
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+    background: #f39c12;
+    position: relative;
+    text-align: center;
+    font-size: 32px;
+    color: #fff;
+    z-index: 1;
+    /* animation: swinging 60s infinite; */
+    animation: swinging 10s ease-in-out 0s infinite;
+      /*transform: rotate(-4deg);*/
+}
+.site-board:before{
+    
+}
+
+.site-board span{
+  margin-top: 20px;
+  display: inline-block;
+}
+.site-board .board-border{
+    position: absolute;
+    height: 66px;
+    width: 206px;
+    border: 2px solid #4aa3df;
+    top: 5px;
+    left: 5px;
+    border-radius: 5px;
+}
+.site-board .board-border:before{
+      content: '';
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      background: #16a085;
+      position: absolute;
+      left: 60px;
+      z-index: 1000;
+}
+.site-board .board-border:after{
+      content: '';
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      background: #16a085;
+      position: absolute;
+      right: 60px;
+      z-index: 5;
+}
+
+
+@keyframes swinging{
+0% { transform: rotate(0); }
+10% { transform: rotate(5deg); }
+20% { transform: rotate(-5deg); }
+30% { transform: rotate(4deg); }
+40% { transform: rotate(-4deg); }
+50% { transform: rotate(3deg); } 
+60% { transform: rotate(-3deg); } 
+70% { transform: rotate(4deg); } 
+80% { transform: rotate(-4deg); } 
+90% { transform: rotate(5deg); } 
+100% { transform: rotate(-5deg); }
+}
+
+/* CSS Styles for Video Play Button */
+ .control-wrapper{
+      width: 100%;
+      padding: 50px 0;
+      text-align: center;
+      
+    }
+      
+      .control {
+  border: 11.2px solid #ffb160;
+  border-radius: 50%;
+  margin: 20px;
+  padding: 28px;
+  width: 60px;
+  height: 60px;
+  font-size: 0;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+.control,
+.control .left,
+.control .right,
+.control:before {
+  display: inline-block;
+  vertical-align: middle;
+  transition: border 0.4s, width 0.4s, height 0.4s, margin 0.4s;
+  transition-tiomig-function: cubic-bezier(1, 0, 0, 1);
+  box-sizing: content-box;
+}
+.control:before {
+  content: "";
+  height: 112px;
+}
+.control.pause .left,
+.control.pause .right {
+  margin: 0;
+  border-left: 20px solid #ffb160;
+  border-top: 0 solid transparent;
+  border-bottom: 0 solid transparent;
+  height: 50px;
+    margin-top: -46px;
+}
+.control.pause .left {
+  border-right: 22.4px solid transparent;
+}
+.control.play .left {
+  margin-left: 0;
+  border-left: 30px solid #ffb160;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-right: 0px solid transparent;
+  height: 48px;
+  margin-top: -50px;
+}
+.control.play .right {
+ margin: 0;
+  border-left: 44px solid #ffb160;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  height: 0px;
+  margin-top: -50px;
+}
+.control:hover {
+  border-color: #ff982d;
+}
+.control:hover .left,
+.control:hover .right {
+  border-left-color: #ff982d;
+}
+
+#bgvid{
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+video {
+  /* display: none;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 75%;
+  height: 75%;
+  z-index: -100; */
+background-size: cover;
+}
+
+.video-overlay{
+  display: none;
+  position: absolute;
+right: 0;
+bottom: 0;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+}
+
+#front-video{
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -1;
+}
+
+.close-video{
+  opacity: 0.8;
+  padding: 20px;
+}
+.close-video .fa-times-circle-o{
+  float: right;
+  cursor: pointer;
+}
+
+/* END CSS Styles for Video Play Button */
+
+/*contact us */
+ .container.contact-us{
+        width: 980px;
+        padding: 60px 0;
+      }
+      
+      .contact-us-division{
+          padding: 0 60px 0 30px;
+      }
+      
+      .contact-us .contact-us-heading {
+        font-size: 24px;
+        text-align: left;
+      }
+      
+       .contact-us-form{
+        padding: 0 100px;
+      }
+      
+      .contact-form{
+        padding-left: 60px;
+      }
+      
+      .form-group .control-label{
+        width: 25%;
+        float: left;
+        padding-right: 30px;
+      }
+      
+      .form-group .form-field{
+        width: 70%;
+        float: left;
+      }
+      
+      button.btn.btn-contact-us{
+          background-color: #3598db;
+          color: #fff;
+          text-transform: uppercase;
+          padding-left: 20px;
+          padding-right: 20px;
+      }
+      
+      .contact-us .lines{
+        text-align: center;
+      }
+      
+      .contact-us .lines:before, .contact-us .lines:after {
+        display: inline-block;
+        margin: 0 0 6px 20px;
+        height: 1px;
+        content: " ";
+        text-shadow: none;
+        background-color: #bcbcbc;
+        width: 90px;
+      }
+      
+      .contact-social-list ul{
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+      }
+      
+      .contact-social-list ul li{
+        float: left;
+        margin-right: 10px;
+      }
+      
+      .contact-social-list .fa{
+        opacity: 0.8;
+      }
+      
+      .contact-social-list .fa:hover{
+        opacity: 1;
+      }
+      
+      .social.facebook .fa{
+        color: #3b5998;
+      }
+      
+      .social.twitter .fa{
+        color: #00aced;
+      }
+      
+      .social.googleplus .fa{
+        color: #D34836;
+      }
+
+/*ENd Contact us*/
 
 </style>
   <script>
@@ -1891,7 +2272,47 @@ $(document).ready(function(){
 });
 
 
-
+//script for video
+$(document).ready(function(){
+     console.log('test');
+     $('.bg-control').on('click', function() {
+           $('.video-overlay').fadeIn('1200');
+           $('.bg-control').hide();
+       });
+     
+         $('.play-video').on('click', function() {
+            $('.bg-control').hide();
+           toggleVideo();
+         
+       });
+       
+       $(document).on('keydown', function(e) {
+         if (e.which == 32) {
+           toggleVideo();
+         }
+         
+       });
+       
+       $('.close-video').click(function(){
+         
+         $('.video-overlay').fadeOut('1200');
+           $('.bg-control').show();
+         
+       });
+       
+   });
+   
+   function toggleVideo(){
+     
+     if($('.play-video').hasClass('play'))
+       $('#front-video').trigger('play');
+     else
+       $('#front-video').trigger('pause');
+       
+     $('.play-video').toggleClass('pause play');
+     
+   }
+//end script
 
   </script>
   </head>
@@ -2117,33 +2538,101 @@ $(document).ready(function(){
           </div>
         </div>
       </section>
-      <section class="container-fluid">
-        <div class="our-process-wrapper container">
-          <div class="our-process-title">ABOUT TRYKARO</div>
-          <div class="process-icon">
-            <img height="100" src="http://upload.wikimedia.org/wikipedia/commons/a/ac/Nexus_5_Front_View.png" />
-          </div>
-          <div class="process-title" style="letter-spacing: 0;">Saving comes your way</div>
-          <div class="process-text">
-            <ul>
-              <li>Be the part of our story get the saving come your way</li>
-              <li>choose from the various devices available online or at your nearest store</li>
-              <li>Get the best offer at Experaiser</li>
-            </ul>
-          </div>
+      <section class="container-fluid about-section">
+        <div id="about1"></div>
+        <video autoplay="" loop="" poster="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/home-vid-img.jpg" id="bgvid">//poster image required
+        <source src="res/img/bg-video.mp4" type="video/mp4"></source>
+      </video>
+      <div class="control-wrapper">
+        <div class="control play bg-control">
+          <span class="left"></span>
+          <span class="right"></span>
         </div>
-      </section>
+      </div>
+      <div class="video-overlay">
+      <video autoplay="" loop="" poster="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/home-vid-img.jpg" id="front-video">//poster image required
+        <source src="res/img/bg-video.mp4" type="video/mp4"></source>
+      </video>
+      <div class="close-video">
+        <i class="fa fa-times-circle-o fa-4x"></i>
+      </div>
+      <div class="control-wrapper">
+        <div class="play-video control pause">
+          <span class="left"></span>
+          <span class="right"></span>
+        </div>
+      </div>
+    </div>
+    </section>
+    <div class="our-process-wrapper container">
+          <div class="our-process-title">ABOUT TRYKARO</div>
+     </div>
 
       <section  class="container-fluid section-contact">
-        <div id="contact"></div>
-        <div class="contact-wrapper container">
-          <div class="contact-title">Contacts</div>
-          <div class="contact-icon">
-            <img height="100" src="http://upload.wikimedia.org/wikipedia/commons/a/ac/Nexus_5_Front_View.png" />
+        <div id="contact"> </div>
+        <div class="contact-title">Contact Us</div>
+        <div class="page-content dark">
+      <div class="container contact-us">
+        <div class="row large-padding contact-us-container">
+          <div class="contact-us-division contact-us-form col-sm-8 contact-us-light">
+            <p class="contact-us-heading">Get in Touch</p>
+            <p class="contact-message">Please fill in the form below or contact us by emailing                                           <a href="#" class="contact-email">contact@test.in</a>
+            </p>
+            <p class="lines"> OR </p>
+            <div class="contact-form">
+              <p class="contact-message">Drop us line by using below form.</p>
+              <form class="form-horizontal" action="" method="post" onsubmit="return validateForm();">
+                <div class="form-group">
+                  <label for="inputEmail3" class="control-label">Full Name</label>
+                  <div class="form-field">
+                    <input type="text" autocomplete="off" class="form-control noradius widder-input" name="Full_Setting_Name" id="inputEmail3" placeholder="Enter your full name.." />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="control-label">Email</label>
+                  <div class="form-field">
+                    <input type="email" autocomplete="off" class="form-control noradius widder-input" name="Email_Setting_Address" id="inputEmail3" placeholder="Enter your email address.." />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="control-label">Message</label>
+                  <div class="form-field">
+                    <textarea name="txtMessage" class="form-control noradius widder-input"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="contact-submit">
+                    <button type="submit" class="btn btn-contact-us pull-right">Get in touch</button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="contact-title" style="letter-spacing: 0;">Feel free to email us</div>
-          <div class="contact-text">Call at :96504397777</div>
+          <div class="contact-us-division contact-us-address col-sm-4 contact-us-dark">
+            <p class="contact-us-heading">Corporate Address</p>
+            <p class="address-heading">----------- Pvt Ltd.</p>
+            <p class="address-content">429 Laxmi Mall,<br />
+                    Laxmi Industrial Estate,<br />
+                    New Link Road,<br />
+                    Andheri W, Mumbai - 400053
+                </p>
+            <div class="get-direction">
+              <p>
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <a>Get Directions/View on Google maps.</a>
+              </p>
+            </div>
+            <div class="contact-social-list text-right">
+              <ul>
+                <li class="social facebook"><a target="_blank" href=""><i class="fa fa-3x fa-facebook-square"></i></a></li>
+                <li class="social twitter"><a target="_blank" href=""><i class="fa fa-3x fa-twitter-square"></i></a></li>
+                <li class="social googleplus"><a target="_blank" href=""><i class="fa fa-3x fa-google-plus-square"></i></a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
       </section>
     </div>
   </body>
