@@ -44,3 +44,4 @@ Temporary Items
 
 build/*
 .settings/*
+WebContent/WEB-INF/database.properties
