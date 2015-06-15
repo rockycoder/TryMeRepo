@@ -2402,7 +2402,7 @@ $(document).ready(function(){
             </div>
           </div>
         </div>
-         <a href="loggedin" class="menu-item">Sign In with Twitter</a>
+      
         <div class="site-text-wrapper col-sm-6 col-md-6">
           <div class="site-text">
             <!-- <h2>Experaiser</h2> -->

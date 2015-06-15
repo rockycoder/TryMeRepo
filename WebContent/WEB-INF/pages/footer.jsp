@@ -3,7 +3,7 @@
 			<div class="footer container">
 			<div class="col-md-12">
 					<ul class="social-media">
-						<li><i class="fa fa-facebook-square fa-3x"></i></li>
+						<li><i class="fa fa-facebook-square fa-3x" onclick="checkLoginState();"></i></li>
 						<li><i class="fa fa-twitter-square fa-3x"></i></li>
 						<li><i class="fa fa-youtube-square fa-3x"></i></li>
 						<li><i class="fa  fa-google-plus-square fa-3x"></i></li>
