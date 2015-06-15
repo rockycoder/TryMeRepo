@@ -5,6 +5,7 @@ package com.app.web.controller;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContext;
+
 import com.app.Utils.ApplicationException;
+import com.app.Utils.JsonResponse;
+import com.app.Utils.OperationProperties;
+import com.app.Utils.UserLoginDetail;
 import com.app.pojo.Categories;
 import com.app.pojo.Customers;
 import com.app.pojo.Products;
@@ -25,6 +30,7 @@ import com.app.pojo.Reviews;
 import com.app.sorting.SortByDateAdded;
 import com.app.sorting.SortByProductsViewed;
 import com.app.web.ServiceApi.ICustomerService;
+
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -35,25 +41,30 @@ import twitter4j.auth.RequestToken;
 public class HomeController {
 	@Autowired
 	ICustomerService service;
-
+	String redirectingURL="http://localhost:8080/Trymeagain/Loggedin";
 	@RequestMapping(method = RequestMethod.GET, value = "/index")
 	public @ResponseBody ModelAndView index() {
 		String message = "Hello World, Spring 3.0!";
 		return new ModelAndView("index", "message", message);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/Savefbuser")
-	public String Savefbuser(String customerdata) {
-		
-		
+	@RequestMapping(method = RequestMethod.POST, value = "/Savefbuser" ,headers="Accept=application/json" )
+	public @ResponseBody String saveFbUser(String username) {
+
 		try {
 
-			return "Loggedin";	
+			System.out.println("Insde the controller");
+			
+			OperationProperties operationProp = new OperationProperties();
+			
+
+			return "{\"user\": { \"status\": \"" + "OK" + "\"}}";
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "fatal_error";
+			
 		}
+		return null;
 
 	}
 
