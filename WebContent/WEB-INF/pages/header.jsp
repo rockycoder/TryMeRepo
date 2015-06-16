@@ -9,10 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<meta name="google-signin-scope" content="profile email">
-<meta name="google-signin-client_id"
-	content="764518652149-djttn7feqkn68nvbm4qbh9mv75m8esq4.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://connect.facebook.net/en_US/all.js"></script>
@@ -50,7 +46,7 @@
 <script type="text/javascript" src="res/js/jquery.flexslider.js"></script>
 <script type="text/javascript" src="res/js/jquery.flexslider-min.js"></script>
 <script type="text/javascript" src="res/js/scripts.js"></script>
-<script type="text/javascript" src="res/js/loginAuth.js"></script>
+
 <script src="res/js/megamenu.js"></script>
 <script src="res/js/jquery.bootstrap.newsbox.min.js"
 	type="text/javascript"></script>
@@ -77,16 +73,7 @@
 					<li><a href="Appliances"> Appliances </a></li>
 					<!-- <li><a href="#"> Accessories </a></li> -->
 					<li><a href="Tablets"> Tablets </a></li>
-					<li>
-						<button id="loginBtn" onclick="logIn();" value="Login with Facebook">Login</button>
-					</li>
-					<button id="logout" onclick="logout();" value="Logout">logout</button>
-					</li>
-					<input type="button"  value="Login with google+" onclick="googlelogin()" />
-                    <input type="button"  value="Logout" onclick="googlelogout()" />
-
-
-
+					
 				</ul>
 
 			</div>

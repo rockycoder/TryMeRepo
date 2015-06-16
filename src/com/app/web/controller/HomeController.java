@@ -41,21 +41,21 @@ import twitter4j.auth.RequestToken;
 public class HomeController {
 	@Autowired
 	ICustomerService service;
-	String redirectingURL="http://localhost:8080/Trymeagain/Loggedin";
+	//String redirectingURL="http://localhost:8080/Trymeagain/Loggedin";
 	@RequestMapping(method = RequestMethod.GET, value = "/index")
 	public @ResponseBody ModelAndView index() {
 		String message = "Hello World, Spring 3.0!";
 		return new ModelAndView("index", "message", message);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/Savefbuser" ,headers="Accept=application/json" )
+	@RequestMapping(method = RequestMethod.POST, value = "/Savefbuser")
 	public @ResponseBody String saveFbUser(String username) {
 
 		try {
 
 			System.out.println("Insde the controller");
 			
-			OperationProperties operationProp = new OperationProperties();
+			//OperationProperties operationProp = new OperationProperties();
 			
 
 			return "{\"user\": { \"status\": \"" + "OK" + "\"}}";
@@ -263,5 +263,17 @@ public class HomeController {
 		}
 		return lLatestProds.subList(0,
 				ControllerUtilsConstants.NUMBER_OF_LATEST_PRODUCTS);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/Signup")
+	public String Signup(ModelMap model) {
+		try {
+			
+			return "Signup";
+		} 
+		 catch (Exception e) {
+			return "fatal_error";
+		}
+
 	}
 }

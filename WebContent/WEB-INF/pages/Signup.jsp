@@ -1,6 +1,86 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<title>TryKaro.Try Before Buy</title>
 <head>
+<meta name="author" content="">
 
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="res/js/loginAuth.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script>
+function googleLogIn() 
+{
+  var myParams = {
+    'clientid' : '764518652149-djttn7feqkn68nvbm4qbh9mv75m8esq4.apps.googleusercontent.com',
+    'cookiepolicy' : 'single_host_origin',
+    'callback' : 'loginCallback',
+    'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+  };
+  gapi.auth.signIn(myParams);
+}
+
+function loginCallback(result)
+{
+    if(result['status']['signed_in'])
+    {        
+        var request = gapi.client.plus.people.get(
+        {
+            'userId': 'me'
+        });
+        request.execute(function (resp)
+        {
+            var email = '';
+            if(resp['emails'])
+            {
+                for(i = 0; i < resp['emails'].length; i++)
+                {
+                    if(resp['emails'][i]['type'] == 'account')
+                    {
+                        email = resp['emails'][i]['value'];
+                    }
+                }
+            }
+ 
+            var str = "Name:" + resp['displayName'] + "<br>";
+            str += "Image:" + resp['image']['url'] + "<br>";
+            str += "<img src='" + resp['image']['url'] + "' /><br>";
+ 
+            str += "URL:" + resp['url'] + "<br>";
+            str += "Email:" + email + "<br>";
+            console.log(resp); 
+            
+            
+        });
+       
+    }
+ 
+}
+
+function onLoadCallback()
+{
+    gapi.client.setApiKey('AIzaSyA_8Luoq9m5hwxgs-UbzudiyDE5GXuFeUY');
+    gapi.client.load('plus', 'v1',function(){});
+}
+
+(function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+
+function logout()
+{
+    gapi.auth.signOut();
+    location.reload();
+}
+
+
+
+</script>
   <script src="res/js/jquery.min.js"></script>
     <script src="res/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css' />
@@ -12,12 +92,54 @@
   <style type="text/css">
 /* Styles go here */
 
-
 html, body{
   margin: 0;
   padding: 0;
 }
+.socialtext
+{
+ text-align:center;
+ font-size:15px;
+ 
+}
+.socialLinks {
+  float: left;
+}
+.socialLinks a#btnTwitter {
+  background: url("\res\img\twitter.png") no-repeat scroll 0 0 transparent;
+}
+.btnFacebook {
+  background: url("./images2/facebook.svg") no-repeat scroll 0 0 transparent;
+}
+.socialLinks a#btnGoogle {
+  background: url("./images2/gp.svg") no-repeat scroll 0 0 transparent;
+}
+.form-signup-home .btn, .form-signup-home dl.form input[type="text"], .form-signup-home dl.form input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+dl.form>dd input[type="text"], dl.form>dd input[type="password"], dl.form>dd input[type="email"], dl.form>dd input[type="url"] {
+  
+  max-width: 100%;
+  
+  background-position-x: 98%;
+}
+.form-signup-home dl.form input[type="text"], .form-signup-home dl.form input[type="password"] {
+  width: 100%;
+  margin-right: 0;
+  border-color: #fff;
+}
 
+
+.container1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container1 {
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}
 .page-wrapper{
   padding: 0;
 }
@@ -66,7 +188,7 @@ section{
   height: 250px;
   border: 5px solid #444;
   border-radius: 10px 10px 0 0;
-  /* background: #fff url(img/color-hands.png) no-repeat; */
+  /* background: #fff url(res/img/color-hands.png) no-repeat; */
   /* background: #fff url(http://gracespace.org.uk/wp-content/uploads/2012/01/explore-logo-300x114.gif) no-repeat; */
   background-size: 74%;
   background-position: 68px 18px;
@@ -985,6 +1107,27 @@ header::before {
   transition: background-color 0.3s 0.3s;
   background-color: #ffffff;
 }
+.text-muted {
+ 
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"
+}
+
+.form-signup-home {
+margin-top:40px;
+  float: right;
+  width: 320px;
+  margin-left: 40px;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+dl.form input[type="text"], .form-signup-home dl.form input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
 .cd-nav-trigger span::before, .cd-nav-trigger span::after {
   /* upper and lower lines of the menu icon */
   content: '';
@@ -1523,7 +1666,9 @@ h1 {
     z-index: 1;
     margin-top: -42px;
 }
-
+dl.form {
+  margin: 15px 0;
+}
 .menu-item:hover {
   background: white;
   color: #00bcd4;
@@ -1601,386 +1746,6 @@ h1 {
 
 /*  END CSS STYLES For GOOEY MENU  */
 
-/*CSS Fror conatct us */
-.contact-us{
-  width: 980px;
-  background-color: #f2f2f2;
-  padding: 55px;
-  
-}
-.contact-us-division{
-    padding: 0 40px;
-}
-.contact-us-form{
-      position: relative;
-  min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px;
-  float: left;
-}
-
-.contact-message{
-  font-size: 15px;
-  padding-bottom: 10px;
-  text-align: left;
-  font-weight: lighter;
-}
-.contact-us-division{
-    display: table-cell;
-  padding: 25px;
-}
-
-#video-bg {
-position: absolute;
-right: 0;
-bottom: 0;
-width: auto;
-min-width: 100%;
-height: auto;
-min-height: 100%;
-z-index: -100;
-background: transparent url(video-bg.jpg) no-repeat;
-background-size: cover;
-opacity: 0.3
-}
-
-.about-section{
-  position: relative;
-}
-/*logo header*/
- .site-board-wrapper{
-    height: 160px;   
-    width: 220px;
-    /* border: 1px solid #f2f2f2; */
-    display: block;
-    position: absolute;
-    top: 10px;
-  right: 20px;
-    /* animation: swinging 60s infinite; */
-}
-.board-cord{
-    width: 100%;
-    height: 50%;
-    position: relative;
-}
-.board-cord span{
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #16a085;
-    top: -8px;
-    left: 50%;
-    margin-left: -9px;
-    z-index: 2;
-}
-.board-cord:before{
-    content: '';
-    height: 100px;
-    width: 2px;
-    background: #c0392b;
-    position: absolute;
-    left: 90px;
-    top: -5px;
-    z-index: 0;
-    transform: rotate(24deg);
-}
-.board-cord:after{
-    content: '';
-    height: 100px;
-    width: 2px;
-    background: #c0392b;
-    position: absolute;
-    right: 92px;
-    top: -5px;
-    z-index: 0;
-    transform: rotate(-24deg);
-}
-.site-board{
-    width: 100%;
-    height: 50%;
-    border-radius: 5px;
-    background: #f39c12;
-    position: relative;
-    text-align: center;
-    font-size: 32px;
-    color: #fff;
-    z-index: 1;
-    /* animation: swinging 60s infinite; */
-    animation: swinging 10s ease-in-out 0s infinite;
-      /*transform: rotate(-4deg);*/
-}
-.site-board:before{
-    
-}
-
-.site-board span{
-  margin-top: 20px;
-  display: inline-block;
-}
-.site-board .board-border{
-    position: absolute;
-    height: 66px;
-    width: 206px;
-    border: 2px solid #4aa3df;
-    top: 5px;
-    left: 5px;
-    border-radius: 5px;
-}
-.site-board .board-border:before{
-      content: '';
-      height: 10px;
-      width: 10px;
-      border-radius: 50%;
-      background: #16a085;
-      position: absolute;
-      left: 60px;
-      z-index: 1000;
-}
-.site-board .board-border:after{
-      content: '';
-      height: 10px;
-      width: 10px;
-      border-radius: 50%;
-      background: #16a085;
-      position: absolute;
-      right: 60px;
-      z-index: 5;
-}
-
-
-@keyframes swinging{
-0% { transform: rotate(0); }
-10% { transform: rotate(5deg); }
-20% { transform: rotate(-5deg); }
-30% { transform: rotate(4deg); }
-40% { transform: rotate(-4deg); }
-50% { transform: rotate(3deg); } 
-60% { transform: rotate(-3deg); } 
-70% { transform: rotate(4deg); } 
-80% { transform: rotate(-4deg); } 
-90% { transform: rotate(5deg); } 
-100% { transform: rotate(-5deg); }
-}
-
-/* CSS Styles for Video Play Button */
- .control-wrapper{
-      width: 100%;
-      padding: 50px 0;
-      text-align: center;
-      
-    }
-      
-      .control {
-  border: 11.2px solid #ffb160;
-  border-radius: 50%;
-  margin: 20px;
-  padding: 28px;
-  width: 60px;
-  height: 60px;
-  font-size: 0;
-  white-space: nowrap;
-  text-align: center;
-  cursor: pointer;
-  box-sizing: content-box;
-}
-.control,
-.control .left,
-.control .right,
-.control:before {
-  display: inline-block;
-  vertical-align: middle;
-  transition: border 0.4s, width 0.4s, height 0.4s, margin 0.4s;
-  transition-tiomig-function: cubic-bezier(1, 0, 0, 1);
-  box-sizing: content-box;
-}
-.control:before {
-  content: "";
-  height: 112px;
-}
-.control.pause .left,
-.control.pause .right {
-  margin: 0;
-  border-left: 20px solid #ffb160;
-  border-top: 0 solid transparent;
-  border-bottom: 0 solid transparent;
-  height: 50px;
-    margin-top: -46px;
-}
-.control.pause .left {
-  border-right: 22.4px solid transparent;
-}
-.control.play .left {
-  margin-left: 0;
-  border-left: 30px solid #ffb160;
-  border-top: 16px solid transparent;
-  border-bottom: 16px solid transparent;
-  border-right: 0px solid transparent;
-  height: 48px;
-  margin-top: -50px;
-}
-.control.play .right {
- margin: 0;
-  border-left: 44px solid #ffb160;
-  border-top: 24px solid transparent;
-  border-bottom: 24px solid transparent;
-  height: 0px;
-  margin-top: -50px;
-}
-.control:hover {
-  border-color: #ff982d;
-}
-.control:hover .left,
-.control:hover .right {
-  border-left-color: #ff982d;
-}
-
-#bgvid{
-  height: auto;
-  width: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-height: 100%;
-  min-width: 100%;
-  z-index: -1;
-  opacity: 0.2;
-}
-
-video {
-  /* display: none;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: 75%;
-  height: 75%;
-  z-index: -100; */
-background-size: cover;
-}
-
-.video-overlay{
-  display: none;
-  position: absolute;
-right: 0;
-bottom: 0;
-min-width: 100%;
-min-height: 100%;
-width: auto;
-height: auto;
-}
-
-#front-video{
-  height: auto;
-  width: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-height: 100%;
-  min-width: 100%;
-  z-index: -1;
-}
-
-.close-video{
-  opacity: 0.8;
-  padding: 20px;
-}
-.close-video .fa-times-circle-o{
-  float: right;
-  cursor: pointer;
-}
-
-/* END CSS Styles for Video Play Button */
-
-/*contact us */
- .container.contact-us{
-        width: 980px;
-        padding: 60px 0;
-      }
-      
-      .contact-us-division{
-          padding: 0 60px 0 30px;
-      }
-      
-      .contact-us .contact-us-heading {
-        font-size: 24px;
-        text-align: left;
-      }
-      
-       .contact-us-form{
-        padding: 0 100px;
-      }
-      
-      .contact-form{
-        padding-left: 60px;
-      }
-      
-      .form-group .control-label{
-        width: 25%;
-        float: left;
-        padding-right: 30px;
-      }
-      
-      .form-group .form-field{
-        width: 70%;
-        float: left;
-      }
-      
-      button.btn.btn-contact-us{
-          background-color: #3598db;
-          color: #fff;
-          text-transform: uppercase;
-          padding-left: 20px;
-          padding-right: 20px;
-      }
-      
-      .contact-us .lines{
-        text-align: center;
-      }
-      
-      .contact-us .lines:before, .contact-us .lines:after {
-        display: inline-block;
-        margin: 0 0 6px 20px;
-        height: 1px;
-        content: " ";
-        text-shadow: none;
-        background-color: #bcbcbc;
-        width: 90px;
-      }
-      
-      .contact-social-list ul{
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-      }
-      
-      .contact-social-list ul li{
-        float: left;
-        margin-right: 10px;
-      }
-      
-      .contact-social-list .fa{
-        opacity: 0.8;
-      }
-      
-      .contact-social-list .fa:hover{
-        opacity: 1;
-      }
-      
-      .social.facebook .fa{
-        color: #3b5998;
-      }
-      
-      .social.twitter .fa{
-        color: #00aced;
-      }
-      
-      .social.googleplus .fa{
-        color: #D34836;
-      }
-
-/*ENd Contact us*/
 
 </style>
   <script>
@@ -2272,47 +2037,7 @@ $(document).ready(function(){
 });
 
 
-//script for video
-$(document).ready(function(){
-     console.log('test');
-     $('.bg-control').on('click', function() {
-           $('.video-overlay').fadeIn('1200');
-           $('.bg-control').hide();
-       });
-     
-         $('.play-video').on('click', function() {
-            $('.bg-control').hide();
-           toggleVideo();
-         
-       });
-       
-       $(document).on('keydown', function(e) {
-         if (e.which == 32) {
-           toggleVideo();
-         }
-         
-       });
-       
-       $('.close-video').click(function(){
-         
-         $('.video-overlay').fadeOut('1200');
-           $('.bg-control').show();
-         
-       });
-       
-   });
-   
-   function toggleVideo(){
-     
-     if($('.play-video').hasClass('play'))
-       $('#front-video').trigger('play');
-     else
-       $('#front-video').trigger('pause');
-       
-     $('.play-video').toggleClass('pause play');
-     
-   }
-//end script
+
 
   </script>
   </head>
@@ -2334,9 +2059,6 @@ $(document).ready(function(){
             </li>
             <li>
               <a href="#contact"> Contact Us </a>
-            </li>
-             <li>
-              <a href="Signup"> Sign Up/Sign In</a>
             </li>
           </ul>
         </div>
@@ -2380,9 +2102,7 @@ $(document).ready(function(){
             <a href="Cameras" class="menu-item"> <i class="fa fa-camera fa-2x"></i> </a>
             <a href="Laptops" class="menu-item"> <i class="fa fa-laptop fa-2x"></i> </a>
             <a href="Tablet" class="menu-item"> <i class="fa fa-tablet fa-2x"></i> </a>
-            
           </nav>
-           
         <div class="laptop-wrapper col-sm-6 col-md-6">
           <div class="laptop ">
             <div class="screen bg-explore">
@@ -2398,51 +2118,64 @@ $(document).ready(function(){
                 <span class="sd-card"></span>
               </div>
             </div>
-            <div class="mymouse" id="mouseeyes">
-              <img src="https://961e845f6113f5a8992beb2c1eb3e4deffaeda76.googledrive.com/host/0B24Zcly7YY4CTkxSdDZINWhBVEE" />
-              <!-- <img src="http://www190.lunapic.com/do-not-link-here-use-hosting-instead/143279182249458?4066259330" /> -->
-            </div>
+           
           </div>
         </div>
-      
-        <div class="site-text-wrapper col-sm-6 col-md-6">
-          <div class="site-text">
+        <div >
+          <div >
             <!-- <h2>Experaiser</h2> -->
             <div class="text" style="text-align: left;">
-              <div class="exp-wrapper" style="  letter-spacing: -11px;">
-                <span class="exp" style="font-size: 50px;">
-                  <span class="e">E</span>
-                  <span class="x">x</span>
-                  <span class="p">p</span>
-                  <span class="e">e</span>
-                  <span class="r">r</span>
-                  <span class="p">a</span>
-                  <span class="i">i</span>
-                  <span class="x">s</span>
-                  <span class="e">e</span>
-                  <span class="r">r</span>
-                </span>
+              <div  style="  letter-spacing: -11px;">
+       
               </div>
-              <span class="cd-intro">
-                <span class="cd-headline letters rotate-2">
-                  <span class="cd-words-wrapper waiting">
-                    <b class="is-visible one"><span class="circle one">1</span>Explore</b>
-                    <b class="two"><span class="circle two">2</span>Experience</b>
-                    <b class="three"><span class="circle three">3</span>Decide</b>
-                  </span>
-                </span>
-              </span>
+           <div class="marketing-section-signup">
+  <div class="container1">
+      <form accept-charset="UTF-8" action="" autocomplete="off" class="form-signup-home js-form-signup-home" method="post">
+      <div style="margin:0;padding:0;display:inline">
+      </div>        <dl class="form">
+          <dd>
+            <input type="text" name="user_name" class="textfield" placeholder="Pick a username"  autofocus>
+          </dd>
+        </dl>
+        <dl class="form">
+          <dd>
+            <input  type="text" name="user_email" class="textfield js-email-notice-trigger" placeholder="Your email" >
+          </dd>
+        </dl>
+        <dl class="form">
+          <dd>
+            <input type="password" name="user_password" class="textfield" placeholder="Create a password" >
+          </dd>
+          <p class="text-muted">Use at least one lowercase letter, one numeral, and seven characters.</p>
+        </dl>
+        <input type="hidden" name="source_label" value="Homepage Form">
+        <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+        <p class="text-muted">
+          By clicking "Sign Up", you agree to our
+          <a href="#">terms of service</a> and
+          <a href="#">privacy policy</a>.
+        </p>
+        <p class="socialtext">OR SIGN UP WITH</p>
+       <div class="social-media">
+<i class="fa fa-facebook-square fa-3x" onclick="facebookLogIn();"></i>
+<i class="fa  fa-google-plus-square fa-3x"  onclick="googleLogIn();" ></i>
+</div>
+</form>
+ 
+    
+  </div><!-- /.container -->
+
+  
+</div><!-- /.jumbotron -->
+           
+              
             </div>
-            <p>Experaiser is a platform where you get a chance to experiece and try the product before hand you actually pays for it</p>
+         
           </div>
         </div>
         </div>
-        <div class="row-fluid scroll-down">
-          <div class="learn-more">Learn More</div>
-          <a class="btn btn-circle page-scroll">
-            <i class="fa fa-angle-double-down animated"></i>
-          </a>
-        </div>
+       
+          
         <!-- <div class="text">
         <span class="dgc">Don't get <span class="bold">Confused ? </span></span>
         <div class="exp-wrapper">
@@ -2465,178 +2198,7 @@ $(document).ready(function(){
       <!-- <div class="nexus">
         <img src="http://upload.wikimedia.org/wikipedia/commons/a/ac/Nexus_5_Front_View.png" />
       </div>-->
-
-      <section class="container-fluid our-process-wrapper section-process">
-        <div id="how-it-work"></div>
-        <div class="container">
-          <div class="our-process-title">How it Works</div>
-          <div class="col-md-4">
-            <div class="process-icon">
-              <img src="res/img/bubbles/explore.png" />
-            </div>
-            <div class="process-title">
-              <div class="exp-wrapper">
-                <span class="exp">
-                  <span class="e">E</span>
-                  <span class="x">x</span>
-                  <span class="p">p</span>
-                  <span class="e">l</span>
-                  <span class="e">o</span>
-                  <span class="r">r</span>
-                  <span class="e">e</span>
-                </span>
-                <span> it </span>
-              </div>
-            </div>
-            <div class="process-text">
-              <ul>
-                <li>Find best from various models </li>
-                <li>Compare online from selected ones </li>
-                <li>Make up your mind viewing the online interface of models you like</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="process-icon">
-              <img src="res/img/bubbles/exp.png" />
-            </div>
-            <div class="process-title">
-              <div class="exp-wrapper">
-                <span class="exp">
-                  <span class="e">E</span>
-                  <span class="x">x</span>
-                  <span class="p">p</span>
-                  <span class="e">e</span>
-                  <span class="r">r</span>
-                  <span class="i">i</span>
-                  <span class="e">e</span>
-                  <span class="n">n</span>
-                  <span class="c">c</span>
-                  <span class="e">e</span>
-                </span>
-                <span> it </span>
-              </div>
-            </div>
-            <div class="process-text">
-              <ul>
-                <li>Order the devices you like for hands on experience at your home</li>
-                <li>get to use it and play around</li>
-                <li>check the prefernce and satisfaction as per you needs</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="process-icon">
-              <img src="res/img/bubbles/decide.png" />
-            </div>
-            <div class="process-title" style="letter-spacing: 0;">Decide to GO!</div>
-            <div class="process-text">
-              <ul>
-                <li>Decide the best by experiencing the real devices</li>
-                <li>have the power to opt the best</li>
-                <li>no more consulting no more following</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="container-fluid about-section">
-        <div id="about1"></div>
-        <video autoplay="" loop="" poster="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/home-vid-img.jpg" id="bgvid">//poster image required
-        <source src="res/img/bg-video.mp4" type="video/mp4"></source>
-      </video>
-      <div class="control-wrapper">
-        <div class="control play bg-control">
-          <span class="left"></span>
-          <span class="right"></span>
-        </div>
-      </div>
-      <div class="video-overlay">
-      <video autoplay="" loop="" poster="http://artbees.net/themes/jupiter-demo/wp-content/uploads/2013/10/home-vid-img.jpg" id="front-video">//poster image required
-        <source src="res/img/bg-video.mp4" type="video/mp4"></source>
-      </video>
-      <div class="close-video">
-        <i class="fa fa-times-circle-o fa-4x"></i>
-      </div>
-      <div class="control-wrapper">
-        <div class="play-video control pause">
-          <span class="left"></span>
-          <span class="right"></span>
-        </div>
-      </div>
-    </div>
-    </section>
-    <div class="our-process-wrapper container">
-          <div class="our-process-title">ABOUT TRYKARO</div>
-     </div>
-
-      <section  class="container-fluid section-contact">
-        <div id="contact"> </div>
-        <div class="contact-title">Contact Us</div>
-        <div class="page-content dark">
-      <div class="container contact-us">
-        <div class="row large-padding contact-us-container">
-          <div class="contact-us-division contact-us-form col-sm-8 contact-us-light">
-            <p class="contact-us-heading">Get in Touch</p>
-            <p class="contact-message">Please fill in the form below or contact us by emailing                                           <a href="#" class="contact-email">contact@test.in</a>
-            </p>
-            <p class="lines"> OR </p>
-            <div class="contact-form">
-              <p class="contact-message">Drop us line by using below form.</p>
-              <form class="form-horizontal" action="" method="post" onsubmit="return validateForm();">
-                <div class="form-group">
-                  <label for="inputEmail3" class="control-label">Full Name</label>
-                  <div class="form-field">
-                    <input type="text" autocomplete="off" class="form-control noradius widder-input" name="Full_Setting_Name" id="inputEmail3" placeholder="Enter your full name.." />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="control-label">Email</label>
-                  <div class="form-field">
-                    <input type="email" autocomplete="off" class="form-control noradius widder-input" name="Email_Setting_Address" id="inputEmail3" placeholder="Enter your email address.." />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="control-label">Message</label>
-                  <div class="form-field">
-                    <textarea name="txtMessage" class="form-control noradius widder-input"></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="contact-submit">
-                    <button type="submit" class="btn btn-contact-us pull-right">Get in touch</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="contact-us-division contact-us-address col-sm-4 contact-us-dark">
-            <p class="contact-us-heading">Corporate Address</p>
-            <p class="address-heading">----------- Pvt Ltd.</p>
-            <p class="address-content">429 Laxmi Mall,<br />
-                    Laxmi Industrial Estate,<br />
-                    New Link Road,<br />
-                    Andheri W, Mumbai - 400053
-                </p>
-            <div class="get-direction">
-              <p>
-                <span class="glyphicon glyphicon-map-marker"></span>
-                <a>Get Directions/View on Google maps.</a>
-              </p>
-            </div>
-            <div class="contact-social-list text-right">
-              <ul>
-                <li class="social facebook"><a target="_blank" href=""><i class="fa fa-3x fa-facebook-square"></i></a></li>
-                <li class="social twitter"><a target="_blank" href=""><i class="fa fa-3x fa-twitter-square"></i></a></li>
-                <li class="social googleplus"><a target="_blank" href=""><i class="fa fa-3x fa-google-plus-square"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-      </section>
-    </div>
-  </body>
+</body>
 
 </html>
+  
